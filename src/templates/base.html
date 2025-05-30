@@ -21,16 +21,16 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="{{ url_for('main_bp.index') }}">
+                <a href="{{ url_for('main.index') }}">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StoryQuest Logo">
                     <span>StoryQuest</span>
                 </a>
             </div>
             <div class="nav-links">
-                <a href="{{ url_for('main_bp.explore') }}">Explore</a>
-                <a href="{{ url_for('main_bp.gallery') }}">Gallery</a>
-                <a href="{{ url_for('main_bp.challenges') }}">Challenges</a>
-                <a href="{{ url_for('main_bp.how_it_works') }}">How It Works</a>
+                <a href="{{ url_for('main.explore') }}">Explore</a>
+                <a href="{{ url_for('main.gallery') }}">Gallery</a>
+                <a href="{{ url_for('main.challenges') }}">Challenges</a>
+                <a href="{{ url_for('main.how_it_works') }}">How It Works</a>
             </div>
             <div class="auth-buttons">
                 <a href="{{ url_for('auth_bp.login') }}" class="btn btn-outline-primary me-2">Login</a>
@@ -52,10 +52,10 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="{{ url_for('main_bp.about') }}">About Us</a></li>
-                    <li><a href="{{ url_for('main_bp.how_it_works') }}">How It Works</a></li>
-                    <li><a href="{{ url_for('main_bp.parental_controls') }}">Parental Controls</a></li>
-                    <li><a href="{{ url_for('main_bp.privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('main.how_it_works') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('main.parental_controls') }}">Parental Controls</a></li>
+                    <li><a href="{{ url_for('main.privacy') }}">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="footer-section">
