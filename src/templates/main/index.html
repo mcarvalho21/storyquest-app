@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1>Create Amazing Stories with StoryQuest!</h1>
+                <p class="lead">An interactive storytelling app designed just for kids. Create characters, build worlds, and craft exciting adventures!</p>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">Start Your Adventure</a>
+                    <a href="{{ url_for('main.how_it_works') }}" class="btn btn-outline-primary btn-lg">Learn How</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/hero-image.png') }}" alt="Kids creating stories" class="img-fluid rounded hero-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="text-center mb-5">Why Kids Love StoryQuest</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{{ url_for('static', filename='images/icons/character.png') }}" alt="Character icon">
+                    </div>
+                    <h3>Create Characters</h3>
+                    <p>Design your own heroes, sidekicks, and even friendly monsters for your stories!</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{{ url_for('static', filename='images/icons/world.png') }}" alt="World icon">
+                    </div>
+                    <h3>Build Worlds</h3>
+                    <p>Create magical forests, space stations, underwater kingdoms, and more!</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{{ url_for('static', filename='images/icons/adventure.png') }}" alt="Adventure icon">
+                    </div>
+                    <h3>Craft Adventures</h3>
+                    <p>Choose your own path and create exciting stories with multiple endings!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="age-groups">
+    <div class="container">
+        <h2 class="text-center mb-5">Perfect for All Ages</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="age-card age-card-young">
+                    <h3>Ages 4-6</h3>
+                    <p>Simple drag-and-drop interface with audio guidance and colorful visuals.</p>
+                    <a href="{{ url_for('main.age_select') }}?age=4-6" class="btn btn-outline-light">Start Here</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="age-card age-card-middle">
+                    <h3>Ages 7-9</h3>
+                    <p>More story options with guided writing and creative challenges.</p>
+                    <a href="{{ url_for('main.age_select') }}?age=7-9" class="btn btn-outline-light">Start Here</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="age-card age-card-older">
+                    <h3>Ages 10-12</h3>
+                    <p>Advanced storytelling tools with character development and plot twists.</p>
+                    <a href="{{ url_for('main.age_select') }}?age=10-12" class="btn btn-outline-light">Start Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container text-center">
+        <h2>Ready to Start Your Storytelling Adventure?</h2>
+        <p class="lead">Join thousands of kids creating amazing stories today!</p>
+        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg mt-3">Create Your Free Account</a>
+    </div>
+</section>
+{% endblock %}

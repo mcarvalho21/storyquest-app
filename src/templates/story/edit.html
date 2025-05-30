@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="story-editor" id="story-editor-form" data-story-id="{{ story.id }}">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Edit Story: {{ story.title }}</h2>
+                    <span id="save-indicator" class="text-muted small">Last saved: Never</span>
+                </div>
+                
+                <form method="POST" action="{{ url_for('story.edit', story_id=story.id) }}">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Story Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ story.title }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Short Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3">{{ story.description }}</textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Story Elements</label>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i> Drag elements to rearrange your story. Add new elements using the buttons below.
+                        </div>
+                        
+                        <div id="story-elements-container" class="mb-3">
+                            {% for element in elements %}
+                                <div class="element-card" data-element-id="{{ element.id }}">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="element-handle">
+                                            <i class="bi bi-grip-vertical me-2"></i>
+                                            <span class="badge bg-primary">{{ element.element_type|capitalize }}</span>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-sm btn-outline-danger element-delete">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="element-content mt-2">
+                                        {% if element.element_type == 'character' %}
+                                            <div class="d-flex align-items-center">
+                                                {% if element.character and element.character.image_path %}
+                                                    <img src="{{ url_for('static', filename=element.character.image_path) }}" alt="{{ element.character.name }}" class="element-thumbnail me-3">
+                                                {% endif %}
+                                                <div>
+                                                    <h5>{{ element.character.name if element.character else 'Character' }}</h5>
+                                                    <p class="mb-0 small">{{ element.character.description if element.character else '' }}</p>
+                                                </div>
+                                            </div>
+                                        {% elif element.element_type == 'setting' %}
+                                            <div class="d-flex align-items-center">
+                                                {% if element.setting and element.setting.image_path %}
+                                                    <img src="{{ url_for('static', filename=element.setting.image_path) }}" alt="{{ element.setting.name }}" class="element-thumbnail me-3">
+                                                {% endif %}
+                                                <div>
+                                                    <h5>{{ element.setting.name if element.setting else 'Setting' }}</h5>
+                                                    <p class="mb-0 small">{{ element.setting.description if element.setting else '' }}</p>
+                                                </div>
+                                            </div>
+                                        {% elif element.element_type == 'plot_point' %}
+                                            <div class="plot-point-content">
+                                                <textarea class="form-control" rows="2">{{ element.content|tojson|safe }}</textarea>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <input type="hidden" class="element-position" name="element_positions[]" value="{{ loop.index0 }}">
+                                    <input type="hidden" name="element_types[]" value="{{ element.element_type }}">
+                                    <input type="hidden" name="element_ids[]" value="{{ element.id }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="element-toolbar d-flex flex-wrap gap-2">
+                            <button type="button" class="btn btn-outline-primary" id="add-character">
+                                <i class="bi bi-person-plus me-1"></i> Add Character
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" id="add-setting">
+                                <i class="bi bi-image me-1"></i> Add Setting
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" id="add-plot-point">
+                                <i class="bi bi-chat-square-text me-1"></i> Add Plot Point
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" id="add-choice">
+                                <i class="bi bi-signpost-split me-1"></i> Add Choice
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="is_complete" name="is_complete" {% if story.is_complete %}checked{% endif %}>
+                            <label class="form-check-label" for="is_complete">
+                                Mark story as complete
+                            </label>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-outline-secondary me-2" id="save-draft">Save Draft</button>
+                            <button type="submit" class="btn btn-primary">Save Story</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Character Selection Modal -->
+            <div class="modal fade" id="characterModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Select a Character</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-3">
+                                {% for character in characters %}
+                                    <div class="col-6">
+                                        <div class="character-select-card" data-character-id="{{ character.id }}">
+                                            <div class="character-avatar">
+                                                {% if character.image_path %}
+                                                    <img src="{{ url_for('static', filename=character.image_path) }}" alt="{{ character.name }}">
+                                                {% else %}
+                                                    <div class="character-placeholder">
+                                                        <i class="bi bi-person-fill"></i>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            <h5>{{ character.name }}</h5>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <a href="{{ url_for('asset.create_character') }}" class="btn btn-outline-primary">
+                                    <i class="bi bi-plus-circle me-1"></i> Create New Character
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Setting Selection Modal -->
+            <div class="modal fade" id="settingModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Select a Setting</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-3">
+                                {% for setting in settings %}
+                                    <div class="col-6">
+                                        <div class="setting-select-card" data-setting-id="{{ setting.id }}">
+                                            <div class="setting-image">
+                                                {% if setting.image_path %}
+                                                    <img src="{{ url_for('static', filename=setting.image_path) }}" alt="{{ setting.name }}">
+                                                {% else %}
+                                                    <div class="setting-placeholder">
+                                                        <i class="bi bi-image"></i>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            <h5>{{ setting.name }}</h5>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <a href="{{ url_for('asset.create_setting') }}" class="btn btn-outline-primary">
+                                    <i class="bi bi-plus-circle me-1"></i> Create New Setting
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

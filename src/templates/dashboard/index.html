@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}StoryQuest - Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>Ready to continue your storytelling adventure?</p>
+    </div>
+
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <img src="{{ url_for('static', filename='images/icons/character.png') }}" alt="Characters">
+            <h3>Characters</h3>
+            <p>3 created</p>
+        </div>
+        <div class="stat-card">
+            <img src="{{ url_for('static', filename='images/icons/world.png') }}" alt="Worlds">
+            <h3>Worlds</h3>
+            <p>2 explored</p>
+        </div>
+        <div class="stat-card">
+            <img src="{{ url_for('static', filename='images/icons/adventure.png') }}" alt="Adventures">
+            <h3>Stories</h3>
+            <p>1 completed</p>
+        </div>
+    </div>
+
+    <div class="dashboard-actions">
+        <a href="{{ url_for('story_bp.create') }}" class="action-button primary">
+            <i class="fas fa-plus"></i> Create New Story
+        </a>
+        <a href="{{ url_for('story_bp.continue') }}" class="action-button secondary">
+            <i class="fas fa-play"></i> Continue Story
+        </a>
+    </div>
+
+    <div class="dashboard-sections">
+        <div class="section">
+            <h2>Recent Stories</h2>
+            <div class="story-cards">
+                <div class="story-card">
+                    <div class="story-image placeholder"></div>
+                    <h3>The Magic Forest</h3>
+                    <p>Last edited: Yesterday</p>
+                    <div class="story-progress">
+                        <div class="progress-bar" style="width: 75%"></div>
+                        <span>75% complete</span>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-image placeholder"></div>
+                    <h3>Space Adventure</h3>
+                    <p>Last edited: 3 days ago</p>
+                    <div class="story-progress">
+                        <div class="progress-bar" style="width: 30%"></div>
+                        <span>30% complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Weekly Challenge</h2>
+            <div class="challenge-card">
+                <h3>Underwater Mystery</h3>
+                <p>Create a story about discovering something unexpected at the bottom of the ocean!</p>
+                <div class="challenge-timer">
+                    <i class="fas fa-clock"></i> 3 days remaining
+                </div>
+                <a href="{{ url_for('story_bp.challenge') }}" class="button">Start Challenge</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section achievements">
+        <h2>Recent Achievements</h2>
+        <div class="achievement-list">
+            <div class="achievement">
+                <div class="achievement-icon">🌟</div>
+                <div class="achievement-details">
+                    <h4>First Story</h4>
+                    <p>Completed your first story</p>
+                </div>
+            </div>
+            <div class="achievement">
+                <div class="achievement-icon">🎭</div>
+                <div class="achievement-details">
+                    <h4>Character Creator</h4>
+                    <p>Created 3 unique characters</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

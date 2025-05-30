@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="story-view">
+                <h1 class="mb-3">{{ story.title }}</h1>
+                <p class="lead">{{ story.description }}</p>
+                
+                <div class="story-meta d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <span class="badge bg-primary">{{ story.age_group }} years</span>
+                        {% if story.is_complete %}
+                            <span class="badge bg-success">Completed</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">In Progress</span>
+                        {% endif %}
+                    </div>
+                    
+                    {% if is_owner %}
+                        <div>
+                            <a href="{{ url_for('story.edit', story_id=story.id) }}" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="share-story-btn" data-story-id="{{ story.id }}">
+                                <i class="bi bi-share"></i> Share
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="story-content">
+                    {% for element in elements %}
+                        <div class="story-element mb-4">
+                            {% if element.element_type == 'character' %}
+                                <div class="character-element">
+                                    <div class="d-flex align-items-center">
+                                        {% if element.character and element.character.image_path %}
+                                            <img src="{{ url_for('static', filename=element.character.image_path) }}" alt="{{ element.character.name }}" class="element-image me-3">
+                                        {% else %}
+                                            <div class="element-placeholder me-3">
+                                                <i class="bi bi-person-fill"></i>
+                                            </div>
+                                        {% endif %}
+                                        <div>
+                                            <h3>{{ element.character.name if element.character else 'Character' }}</h3>
+                                            <p>{{ element.character.description if element.character else '' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% elif element.element_type == 'setting' %}
+                                <div class="setting-element">
+                                    <div class="d-flex align-items-center">
+                                        {% if element.setting and element.setting.image_path %}
+                                            <img src="{{ url_for('static', filename=element.setting.image_path) }}" alt="{{ element.setting.name }}" class="element-image me-3">
+                                        {% else %}
+                                            <div class="element-placeholder me-3">
+                                                <i class="bi bi-image"></i>
+                                            </div>
+                                        {% endif %}
+                                        <div>
+                                            <h3>{{ element.setting.name if element.setting else 'Setting' }}</h3>
+                                            <p>{{ element.setting.description if element.setting else '' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% elif element.element_type == 'plot_point' %}
+                                <div class="plot-point-element">
+                                    <div class="plot-content">
+                                        {% if element.content %}
+                                            <p>{{ element.content|safe }}</p>
+                                        {% else %}
+                                            <p>Plot point content</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% elif element.element_type == 'choice' %}
+                                <div class="choice-element">
+                                    <h4>What happens next?</h4>
+                                    <div class="choice-options">
+                                        {% if element.content %}
+                                            {% set choices = element.content|tojson|safe %}
+                                            {% for choice in choices %}
+                                                <button class="btn btn-outline-primary mb-2 w-100 text-start">
+                                                    {{ choice.text }}
+                                                </button>
+                                            {% endfor %}
+                                        {% else %}
+                                            <button class="btn btn-outline-primary mb-2 w-100 text-start">
+                                                Option 1
+                                            </button>
+                                            <button class="btn btn-outline-primary mb-2 w-100 text-start">
+                                                Option 2
+                                            </button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="story-footer mt-5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Back to Dashboard
+                            </a>
+                        </div>
+                        
+                        {% if is_owner and not story.is_complete %}
+                            <div>
+                                <a href="{{ url_for('story.edit', story_id=story.id) }}" class="btn btn-primary">
+                                    Continue Editing
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

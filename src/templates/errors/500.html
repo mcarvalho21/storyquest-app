@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+            <div class="error-page">
+                <img src="{{ url_for('static', filename='images/500.png') }}" alt="Server error" class="img-fluid mb-4" style="max-height: 300px;">
+                <h1 class="display-4">Oops! Something Went Wrong</h1>
+                <p class="lead">We're sorry, but something went wrong on our end. Please try again later.</p>
+                <div class="mt-4">
+                    <a href="{{ url_for('main.index') }}" class="btn btn-primary">Go to Homepage</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

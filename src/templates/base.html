@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}StoryQuest - Interactive Storytelling for Kids{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Additional inline styles for quick fixes */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{ url_for('main_bp.index') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StoryQuest Logo">
+                    <span>StoryQuest</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('main_bp.explore') }}">Explore</a>
+                <a href="{{ url_for('main_bp.gallery') }}">Gallery</a>
+                <a href="{{ url_for('main_bp.challenges') }}">Challenges</a>
+                <a href="{{ url_for('main_bp.how_it_works') }}">How It Works</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="{{ url_for('auth_bp.login') }}" class="btn btn-outline-primary me-2">Login</a>
+                <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>StoryQuest</h3>
+                <p>Making storytelling fun and educational for kids of all ages.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('main_bp.about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('main_bp.how_it_works') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('main_bp.parental_controls') }}">Parental Controls</a></li>
+                    <li><a href="{{ url_for('main_bp.privacy') }}">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><img src="{{ url_for('static', filename='images/icons/facebook.png') }}" alt="Facebook"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='images/icons/twitter.png') }}" alt="Twitter"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='images/icons/instagram.png') }}" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 StoryQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

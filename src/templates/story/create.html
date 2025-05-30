@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="story-editor">
+                <h2 class="mb-4">Create a New Story</h2>
+                <form method="POST" action="{{ url_for('story.create') }}">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Story Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Short Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Age Group</label>
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age_group" id="age4-6" value="4-6" {% if user.age_group == '4-6' %}checked{% endif %}>
+                                <label class="form-check-label" for="age4-6">
+                                    4-6 years
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age_group" id="age7-9" value="7-9" {% if user.age_group == '7-9' or not user.age_group %}checked{% endif %}>
+                                <label class="form-check-label" for="age7-9">
+                                    7-9 years
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age_group" id="age10-12" value="10-12" {% if user.age_group == '10-12' %}checked{% endif %}>
+                                <label class="form-check-label" for="age10-12">
+                                    10-12 years
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Create Story</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
