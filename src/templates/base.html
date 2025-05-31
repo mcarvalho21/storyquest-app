@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        /* Additional inline styles for quick fixes */
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-    </style>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -33,42 +25,49 @@
                 <a href="{{ url_for('main.how_it_works') }}">How It Works</a>
             </div>
             <div class="auth-buttons">
-                <a href="{{ url_for('auth_bp.login') }}" class="btn btn-outline-primary me-2">Login</a>
-                <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">Sign Up</a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary">Login</a>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary">Sign Up</a>
             </div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
-    <main>
+    <main class="container">
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>StoryQuest</h3>
-                <p>Making storytelling fun and educational for kids of all ages.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="{{ url_for('main.about') }}">About Us</a></li>
-                    <li><a href="{{ url_for('main.how_it_works') }}">How It Works</a></li>
-                    <li><a href="{{ url_for('main.parental_controls') }}">Parental Controls</a></li>
-                    <li><a href="{{ url_for('main.privacy') }}">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#"><img src="{{ url_for('static', filename='images/icons/facebook.png') }}" alt="Facebook"></a>
-                    <a href="#"><img src="{{ url_for('static', filename='images/icons/twitter.png') }}" alt="Twitter"></a>
-                    <a href="#"><img src="{{ url_for('static', filename='images/icons/instagram.png') }}" alt="Instagram"></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StoryQuest</h3>
+                    <p>Making storytelling fun and educational for kids of all ages.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+                        <li><a href="{{ url_for('main.how_it_works') }}">How It Works</a></li>
+                        <li><a href="{{ url_for('main.parental_controls') }}">Parental Controls</a></li>
+                        <li><a href="{{ url_for('main.privacy') }}">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 StoryQuest. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StoryQuest. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
