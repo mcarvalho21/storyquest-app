@@ -6,7 +6,7 @@
         <div class="col-lg-8 mx-auto">
             <div class="auth-card">
                 <h2 class="text-center mb-4">Log In</h2>
-                <form method="POST" action="{{ url_for('auth.login') }}">
+                <form method="POST" action="{{ url_for('auth_bp.login') }}">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -20,7 +20,7 @@
                     </div>
                 </form>
                 <div class="text-center mt-3">
-                    <p>Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a></p>
+                    <p>Don't have an account? <a href="{{ url_for('auth_bp.register') }}">Sign up</a></p>
                 </div>
             </div>
         </div>
