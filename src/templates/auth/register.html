@@ -6,6 +6,17 @@
         <div class="col-lg-8 mx-auto">
             <div class="auth-card">
                 <h2 class="text-center mb-4">Create an Account</h2>
+                
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category if category != 'error' else 'danger' }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
                 <form method="POST" action="{{ url_for('auth_bp.register') }}">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>

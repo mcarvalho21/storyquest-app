@@ -1,78 +1,100 @@
 import os
 import sys
-from flask import Flask, render_template, session, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, session, redirect, url_for, flash, request, g
+from flask_login import LoginManager
+from werkzeug.security import generate_password_hash
+import logging
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-# Initialize Flask app
-app = Flask(__name__, 
-            template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
-app.config['SECRET_KEY'] = 'storyquest_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storyquest.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Import logging configuration first
+from src.utils.logging_config import logger
 
-# Import models and initialize database
-from src.models.user import db
-db.init_app(app)
+# Import database and models
+from src.models import db, User, Story, Character, Setting, StoryElement, Achievement, Progress, Challenge
 
-# Import all models after db initialization
-from src.models.user import User
-from src.models.story import Story
-from src.models.character import Character
-from src.models.setting import Setting
-from src.models.story_element import StoryElement
-from src.models.achievement import Achievement
-
-# Import routes after app and model initialization
+# Import routes
 from src.routes.auth import auth_bp
 from src.routes.dashboard import dashboard_bp
 from src.routes.story import story_bp
-from src.routes.asset import asset_bp
 from src.routes.progress import progress_bp
 from src.routes.viral import viral_bp
 from src.routes.main import main_bp
+from src.routes.asset import asset_bp
 
-# Register blueprints
-app.register_blueprint(auth_bp, url_prefix='/auth')
-app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
-app.register_blueprint(story_bp, url_prefix='/story')
-app.register_blueprint(asset_bp, url_prefix='/asset')
-app.register_blueprint(progress_bp, url_prefix='/progress')
-app.register_blueprint(viral_bp, url_prefix='/viral')
-app.register_blueprint(main_bp)
+def create_app():
+    app = Flask(__name__)
+    
+    # Configure the app
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev_key_for_development')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storyquest.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    # Initialize extensions
+    db.init_app(app)
+    
+    # Register blueprints with consistent naming and strict_slashes=False to prevent 308 redirects
+    app.register_blueprint(auth_bp, url_prefix='/auth', strict_slashes=False)
+    app.register_blueprint(dashboard_bp, url_prefix='/dashboard', strict_slashes=False)
+    app.register_blueprint(story_bp, url_prefix='/story', strict_slashes=False)
+    app.register_blueprint(progress_bp, url_prefix='/progress', strict_slashes=False)
+    app.register_blueprint(viral_bp, url_prefix='/viral', strict_slashes=False)
+    app.register_blueprint(asset_bp, url_prefix='/asset', strict_slashes=False)
+    app.register_blueprint(main_bp, strict_slashes=False)
+    
+    # Add authentication context processor to make session data available to all templates
+    @app.context_processor
+    def inject_auth_status():
+        return {
+            'is_authenticated': session.get('user_id') is not None,
+            'username': session.get('username')
+        }
+    
+    # Error handlers
+    @app.errorhandler(404)
+    def page_not_found(e):
+        logger.warning(f"404 error: {request.path} - {e}")
+        return render_template('errors/404.html'), 404
+    
+    @app.errorhandler(500)
+    def internal_server_error(e):
+        logger.error(f"500 error: {request.path} - {e}", exc_info=True)
+        return render_template('errors/500.html'), 500
+    
+    # Log all requests for debugging
+    @app.before_request
+    def log_request():
+        logger.debug(f"Request: {request.method} {request.path} - Session: {session.get('user_id')}")
+    
+    # Log all responses for debugging
+    @app.after_request
+    def log_response(response):
+        logger.debug(f"Response: {response.status_code} - Session: {session.get('user_id')}")
+        return response
+    
+    # Create database tables
+    with app.app_context():
+        db.create_all()
+        
+        # Create admin user if it doesn't exist
+        admin = User.query.filter_by(username='admin').first()
+        if not admin:
+            admin = User(
+                username='admin',
+                email='admin@storyquest.com',
+                password=generate_password_hash('admin123'),
+                age_group='adult'
+            )
+            db.session.add(admin)
+            db.session.commit()
+            logger.info("Admin user created")
+    
+    logger.info("Application initialized successfully")
+    return app
 
-# Create database tables
-with app.app_context():
-    # Drop all tables and recreate them (early development best practice)
-    db.drop_all()
-    db.create_all()
-    print("Database tables dropped and recreated successfully")
+app = create_app()
 
-# Error handlers
-@app.errorhandler(404)
-def page_not_found(e):
-    print(f"404 error: {e}")
-    print(f"Template folder: {app.template_folder}")
-    print(f"Template exists: {os.path.exists(os.path.join(app.template_folder, '404.html'))}")
-    try:
-        # Updated to use the template in the root templates directory
-        return render_template('404.html'), 404
-    except Exception as ex:
-        print(f"Error rendering 404 template: {ex}")
-        return "Page not found", 404
-
-@app.errorhandler(500)
-def internal_server_error(e):
-    print(f"500 error: {e}")
-    try:
-        # Updated to use the template in the root templates directory
-        return render_template('500.html'), 500
-    except Exception as ex:
-        print(f"Error rendering 500 template: {ex}")
-        return "Internal server error", 500
-
-# Run the app
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    logger.info("Starting StoryQuest application")
+    app.run(host='0.0.0.0', port=5000, debug=True)

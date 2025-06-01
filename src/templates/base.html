@@ -25,8 +25,13 @@
                 <a href="{{ url_for('main.how_it_works') }}">How It Works</a>
             </div>
             <div class="auth-buttons">
-                <a href="{{ url_for('auth_bp.login') }}" class="btn btn-outline-primary">Login</a>
-                <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">Sign Up</a>
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('dashboard_bp.index') }}" class="btn btn-outline-primary">Dashboard</a>
+                    <a href="{{ url_for('auth_bp.logout') }}" class="btn btn-primary">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('auth_bp.login') }}" class="btn btn-outline-primary">Login</a>
+                    <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">Sign Up</a>
+                {% endif %}
             </div>
             <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
