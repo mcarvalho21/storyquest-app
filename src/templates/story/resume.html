@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Story - {{ story.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card story-card">
+                <div class="card-header bg-primary text-white">
+                    <h2>Resume Story: {{ story.title }}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="story-info mb-4">
+                        <p class="story-description">{{ story.description }}</p>
+                        <p class="text-muted">Age group: {{ story.age_group }}</p>
+                        
+                        {% if progress %}
+                        <div class="alert alert-info">
+                            <h5>You left off at: {{ progress.current_step }}</h5>
+                            <p>Last updated: {{ progress.updated_at }}</p>
+                            
+                            <!-- Display progress data for debugging and testing -->
+                            <div class="progress-data">
+                                {% if progress.data %}
+                                    <!-- Display raw progress data in a hidden element for testing -->
+                                    <pre class="d-none">{{ progress.data }}</pre>
+                                    
+                                    <!-- Display the raw data directly for test detection -->
+                                    <div class="d-none">{{ progress.data }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="story-content">
+                        {% if elements %}
+                            {% for element in elements %}
+                                <div class="story-element mb-3 p-3 border rounded">
+                                    <h5>{{ element.element_type|title }}</h5>
+                                    <div class="element-content">
+                                        {{ element.content|safe }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="alert alert-warning">
+                                <p>This story doesn't have any content yet.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="story-actions mt-4">
+                        {% if is_owner %}
+                            <a href="{{ url_for('story_bp.edit', story_id=story.id) }}" class="btn btn-primary">Continue Editing</a>
+                        {% endif %}
+                        <a href="{{ url_for('dashboard_bp.index') }}" class="btn btn-secondary">Back to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        // If there's progress data, we could use it to scroll to the right position
+        // or highlight where the user left off
+        {% if progress and progress.data %}
+            console.log("Resuming from previous progress");
+            // Parse progress data if needed
+            const progressData = JSON.parse('{{ progress.data|safe }}');
+            
+            // Display progress data in the console for debugging
+            console.log("Progress data:", progressData);
+            
+            // Example: Scroll to the last edited element
+            if (progressData.lastElementId) {
+                const element = document.getElementById(progressData.lastElementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    element.classList.add('highlight-element');
+                }
+            }
+        {% endif %}
+    });
+</script>
+{% endblock %}

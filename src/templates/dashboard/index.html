@@ -31,7 +31,7 @@
         <a href="{{ url_for('story_bp.create') }}" class="action-button primary">
             <i class="fas fa-plus"></i> Create New Story
         </a>
-        <a href="{{ url_for('story_bp.continue') }}" class="action-button secondary">
+        <a href="{{ url_for('story_bp.view', story_id=1) }}" class="action-button secondary">
             <i class="fas fa-play"></i> Continue Story
         </a>
     </div>
@@ -69,7 +69,7 @@
                 <div class="challenge-timer">
                     <i class="fas fa-clock"></i> 3 days remaining
                 </div>
-                <a href="{{ url_for('story_bp.challenge') }}" class="button">Start Challenge</a>
+                <a href="{{ url_for('viral_bp.challenges') }}" class="button">Start Challenge</a>
             </div>
         </div>
     </div>

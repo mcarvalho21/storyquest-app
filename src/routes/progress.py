@@ -1,13 +1,89 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, session
-from src.models import db, Story, StoryElement
+from src.models import db, Story, StoryElement, Progress
 import json
 from datetime import datetime
 
-progress_bp = Blueprint('progress', __name__)
+progress_bp = Blueprint('progress_bp', __name__)
+
+@progress_bp.route('/save', methods=['POST'])
+def save_progress():
+    """Save user's progress in a story"""
+    if 'user_id' not in session:
+        return jsonify({'success': False, 'error': 'Not logged in'})
+    
+    story_id = request.form.get('story_id')
+    current_step = request.form.get('current_step')
+    data = request.form.get('data')
+    
+    if not story_id:
+        return jsonify({'success': False, 'error': 'Missing story ID'})
+    
+    story = Story.query.get_or_404(story_id)
+    
+    # Check if user owns this story
+    if story.user_id != session['user_id']:
+        return jsonify({'success': False, 'error': 'Permission denied'})
+    
+    # Check if progress already exists
+    progress = Progress.query.filter_by(
+        user_id=session['user_id'],
+        story_id=story_id
+    ).first()
+    
+    if progress:
+        # Update existing progress
+        progress.current_step = current_step
+        progress.data = data
+        progress.updated_at = datetime.utcnow()
+    else:
+        # Create new progress
+        progress = Progress(
+            user_id=session['user_id'],
+            story_id=story_id,
+            current_step=current_step,
+            data=data
+        )
+        db.session.add(progress)
+    
+    # Update story with latest activity timestamp
+    story.updated_at = datetime.utcnow()
+    
+    db.session.commit()
+    
+    return jsonify({
+        'success': True,
+        'message': 'Progress saved successfully',
+        'timestamp': progress.updated_at.isoformat()
+    })
+
+@progress_bp.route('/load/<int:story_id>')
+def load_progress(story_id):
+    """Load user's progress for a story"""
+    if 'user_id' not in session:
+        return jsonify({'success': False, 'error': 'Not logged in'})
+    
+    # Get progress
+    progress = Progress.query.filter_by(
+        user_id=session['user_id'],
+        story_id=story_id
+    ).first()
+    
+    if not progress:
+        return jsonify({
+            'success': False,
+            'error': 'No progress found'
+        })
+    
+    return jsonify({
+        'success': True,
+        'current_step': progress.current_step,
+        'data': progress.data,
+        'timestamp': progress.updated_at.isoformat() if progress.updated_at else None
+    })
 
 @progress_bp.route('/save/<int:story_id>', methods=['POST'])
-def save_progress(story_id):
-    """Save user's progress in a story"""
+def save_story_progress(story_id):
+    """Save user's progress in a story (legacy endpoint)"""
     if 'user_id' not in session:
         return jsonify({'success': False, 'error': 'Not logged in'})
     
@@ -77,14 +153,14 @@ def resume_progress(story_id):
     """Resume a story from saved progress"""
     if 'user_id' not in session:
         flash('Please log in to resume your story', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     story = Story.query.get_or_404(story_id)
     
     # Check if user owns this story or if it's public
     if not story.is_public and story.user_id != session['user_id']:
         flash('You do not have permission to view this story', 'danger')
-        return redirect(url_for('dashboard.index'))
+        return redirect(url_for('dashboard_bp.index'))
     
     # Get story elements
     elements = StoryElement.query.filter_by(story_id=story_id).order_by(StoryElement.position).all()

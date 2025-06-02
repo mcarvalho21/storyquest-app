@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Shared Stories - StoryQuest{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mb-4">Shared Stories</h1>
+            <p class="lead text-center">Discover stories shared by our community of young storytellers!</p>
+        </div>
+    </div>
+    
+    <!-- Shared Stories Grid -->
+    <div class="row mt-4">
+        {% if shared_stories %}
+            {% for story in shared_stories %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 story-card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">{{ story.title }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ story.description }}</p>
+                            <p class="text-muted">
+                                <small>
+                                    <strong>Age Group:</strong> {{ story.age_group }}<br>
+                                    <strong>Author:</strong> {{ story.author.username }}<br>
+                                    <strong>Shared:</strong> {{ story.share_date.strftime('%b %d, %Y') if story.share_date else story.updated_at.strftime('%b %d, %Y') }}
+                                </small>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ url_for('story_bp.view', story_id=story.id) }}" class="btn btn-primary">Read Story</a>
+                            <button class="btn btn-outline-danger like-button" data-story-id="{{ story.id }}">
+                                <i class="fas fa-heart"></i> <span class="like-count">{{ story.like_count|default(0) }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <p>No stories have been shared yet. Be the first to share your story!</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        // Handle like button clicks
+        $('.like-button').click(function() {
+            const storyId = $(this).data('story-id');
+            const button = $(this);
+            
+            $.ajax({
+                url: `/viral/story/${storyId}/like`,
+                method: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        // Update like count
+                        const likeCount = button.find('.like-count');
+                        likeCount.text(parseInt(likeCount.text()) + 1);
+                        
+                        // Add visual feedback
+                        button.addClass('btn-danger').removeClass('btn-outline-danger');
+                        setTimeout(() => {
+                            button.addClass('btn-outline-danger').removeClass('btn-danger');
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

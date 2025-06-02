@@ -3,14 +3,14 @@ from src.models import db, Character, Setting
 import json
 import os
 
-asset_bp = Blueprint('asset', __name__)
+asset_bp = Blueprint('asset_bp', __name__)
 
 @asset_bp.route('/characters', methods=['GET'])
 def list_characters():
     """List all characters for the current user"""
     if 'user_id' not in session:
         flash('Please log in to view your characters', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     characters = Character.query.filter_by(user_id=session['user_id']).all()
     return render_template('asset/characters.html', characters=characters)
@@ -20,7 +20,7 @@ def create_character():
     """Create a new character"""
     if 'user_id' not in session:
         flash('Please log in to create characters', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     if request.method == 'POST':
         name = request.form.get('name')
@@ -58,7 +58,7 @@ def create_character():
         db.session.commit()
         
         flash('Character created successfully!', 'success')
-        return redirect(url_for('asset.list_characters'))
+        return redirect(url_for('asset_bp.list_characters'))
     
     return render_template('asset/create_character.html')
 
@@ -67,14 +67,14 @@ def edit_character(character_id):
     """Edit an existing character"""
     if 'user_id' not in session:
         flash('Please log in to edit characters', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     character = Character.query.get_or_404(character_id)
     
     # Check if user owns this character
     if character.user_id != session['user_id']:
         flash('You do not have permission to edit this character', 'danger')
-        return redirect(url_for('asset.list_characters'))
+        return redirect(url_for('asset_bp.list_characters'))
     
     # Parse attributes
     attributes = json.loads(character.attributes) if character.attributes else {}
@@ -110,7 +110,7 @@ def edit_character(character_id):
         
         db.session.commit()
         flash('Character updated successfully!', 'success')
-        return redirect(url_for('asset.list_characters'))
+        return redirect(url_for('asset_bp.list_characters'))
     
     return render_template('asset/edit_character.html', character=character, attributes=attributes)
 
@@ -119,7 +119,7 @@ def list_settings():
     """List all settings for the current user"""
     if 'user_id' not in session:
         flash('Please log in to view your settings', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     settings = Setting.query.filter_by(user_id=session['user_id']).all()
     return render_template('asset/settings.html', settings=settings)
@@ -129,7 +129,7 @@ def create_setting():
     """Create a new story setting"""
     if 'user_id' not in session:
         flash('Please log in to create settings', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     if request.method == 'POST':
         name = request.form.get('name')
@@ -167,7 +167,7 @@ def create_setting():
         db.session.commit()
         
         flash('Setting created successfully!', 'success')
-        return redirect(url_for('asset.list_settings'))
+        return redirect(url_for('asset_bp.list_settings'))
     
     return render_template('asset/create_setting.html')
 
@@ -176,14 +176,14 @@ def edit_setting(setting_id):
     """Edit an existing setting"""
     if 'user_id' not in session:
         flash('Please log in to edit settings', 'warning')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth_bp.login'))
     
     setting = Setting.query.get_or_404(setting_id)
     
     # Check if user owns this setting
     if setting.user_id != session['user_id']:
         flash('You do not have permission to edit this setting', 'danger')
-        return redirect(url_for('asset.list_settings'))
+        return redirect(url_for('asset_bp.list_settings'))
     
     # Parse attributes
     attributes = json.loads(setting.attributes) if setting.attributes else {}
@@ -219,6 +219,6 @@ def edit_setting(setting_id):
         
         db.session.commit()
         flash('Setting updated successfully!', 'success')
-        return redirect(url_for('asset.list_settings'))
+        return redirect(url_for('asset_bp.list_settings'))
     
     return render_template('asset/edit_setting.html', setting=setting, attributes=attributes)

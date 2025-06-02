@@ -10,7 +10,7 @@
                     <span id="save-indicator" class="text-muted small">Last saved: Never</span>
                 </div>
                 
-                <form method="POST" action="{{ url_for('story.edit', story_id=story.id) }}">
+                <form method="POST" action="{{ url_for('story_bp.edit', story_id=story.id) }}">
                     <div class="mb-3">
                         <label for="title" class="form-label">Story Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{ story.title }}" required>
@@ -136,7 +136,7 @@
                             </div>
                             
                             <div class="text-center mt-3">
-                                <a href="{{ url_for('asset.create_character') }}" class="btn btn-outline-primary">
+                                <a href="{{ url_for('asset_bp.create_character') }}" class="btn btn-outline-primary">
                                     <i class="bi bi-plus-circle me-1"></i> Create New Character
                                 </a>
                             </div>
@@ -174,7 +174,7 @@
                             </div>
                             
                             <div class="text-center mt-3">
-                                <a href="{{ url_for('asset.create_setting') }}" class="btn btn-outline-primary">
+                                <a href="{{ url_for('asset_bp.create_setting') }}" class="btn btn-outline-primary">
                                     <i class="bi bi-plus-circle me-1"></i> Create New Setting
                                 </a>
                             </div>

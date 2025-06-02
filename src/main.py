@@ -27,9 +27,14 @@ def create_app():
     app = Flask(__name__)
     
     # Configure the app
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev_key_for_development')
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'production_key_for_storyquest')
+    
+    # Use SQLite for both development and production to simplify deployment
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storyquest.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    # Set debug mode based on environment
+    app.config['DEBUG'] = os.environ.get('FLASK_ENV') != 'production'
     
     # Initialize extensions
     db.init_app(app)
@@ -73,7 +78,7 @@ def create_app():
         logger.debug(f"Response: {response.status_code} - Session: {session.get('user_id')}")
         return response
     
-    # Create database tables
+    # Create database tables if they don't exist
     with app.app_context():
         db.create_all()
         
@@ -96,5 +101,5 @@ def create_app():
 app = create_app()
 
 if __name__ == '__main__':
-    logger.info("Starting StoryQuest application")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Use 0.0.0.0 to make the app accessible externally
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=False)

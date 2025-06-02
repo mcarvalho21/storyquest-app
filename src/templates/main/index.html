@@ -1,90 +1,364 @@
 {% extends "base.html" %}
 
-{% block title %}StoryQuest - Home{% endblock %}
+{% block title %}StoryQuest - Unleash Your Child's Creativity Through Interactive Storytelling{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
 
 {% block content %}
-<div class="hero-section">
-    <div class="hero-content">
-        <h1>Unleash Your Child's Imagination</h1>
-        <p>StoryQuest helps children create amazing stories while learning the fundamentals of storytelling.</p>
-        <div class="hero-buttons">
-            <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">Start Your Adventure</a>
-            <a href="{{ url_for('main.how_it_works') }}" class="btn btn-secondary">Learn More</a>
-        </div>
-    </div>
-    <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/hero-image.png') }}" alt="Children creating stories">
-    </div>
-</div>
-
-<div class="features-section">
-    <h2>Why Choose StoryQuest?</h2>
-    <div class="features-grid">
-        <div class="feature-card">
-            <img src="{{ url_for('static', filename='images/icons/character.png') }}" alt="Character Creation">
-            <h3>Character Creation</h3>
-            <p>Design unique characters with different personalities, abilities, and backgrounds.</p>
-        </div>
-        <div class="feature-card">
-            <img src="{{ url_for('static', filename='images/icons/world.png') }}" alt="World Building">
-            <h3>World Building</h3>
-            <p>Create magical worlds and settings for your stories to take place in.</p>
-        </div>
-        <div class="feature-card">
-            <img src="{{ url_for('static', filename='images/icons/adventure.png') }}" alt="Adventure Crafting">
-            <h3>Adventure Crafting</h3>
-            <p>Develop exciting plots and adventures with guidance on storytelling elements.</p>
-        </div>
-        <div class="feature-card">
-            <img src="{{ url_for('static', filename='images/icons/share.png') }}" alt="Story Sharing">
-            <h3>Story Sharing</h3>
-            <p>Share your stories with friends and family or keep them private in your collection.</p>
-        </div>
-    </div>
-</div>
-
-<div class="age-groups-section">
-    <h2>For All Young Storytellers</h2>
-    <p>StoryQuest adapts to different age groups with age-appropriate content and interfaces.</p>
-    <div class="age-groups">
-        <div class="age-group">
-            <h3>Ages 4-6</h3>
-            <p>Simple interfaces with more visual aids and audio guidance.</p>
-        </div>
-        <div class="age-group">
-            <h3>Ages 7-9</h3>
-            <p>More storytelling options with guided writing assistance.</p>
-        </div>
-        <div class="age-group">
-            <h3>Ages 10-12</h3>
-            <p>Advanced storytelling tools with more creative freedom.</p>
-        </div>
-    </div>
-</div>
-
-<div class="testimonials-section">
-    <h2>What Parents & Kids Say</h2>
-    <div class="testimonials">
-        <div class="testimonial">
-            <p>"My daughter spends hours creating stories now instead of just watching videos. It's amazing to see her creativity bloom!"</p>
-            <div class="testimonial-author">
-                <img src="{{ url_for('static', filename='images/testimonials/parent1.png') }}" alt="Parent">
-                <span>Sarah, Parent of 8-year-old</span>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="main-headline">Unleash Your Child's Creativity With Interactive Storytelling</h1>
+                <p class="subheadline">StoryQuest helps children ages 4-12 develop literacy skills and creative thinking through personalized, interactive story adventures.</p>
+                <div class="cta-primary">
+                    <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary btn-lg">Start Your Free 14-Day Trial</a>
+                    <p class="no-credit-card">No credit card required</p>
+                </div>
+                <div class="featured-logos">
+                    <p>As featured in:</p>
+                    <div class="logo-container">
+                        <img src="{{ url_for('static', filename='images/featured/education-weekly.png') }}" alt="Education Weekly" class="featured-logo">
+                        <img src="{{ url_for('static', filename='images/featured/parenting-today.png') }}" alt="Parenting Today" class="featured-logo">
+                        <img src="{{ url_for('static', filename='images/featured/tech-for-kids.png') }}" alt="Tech for Kids" class="featured-logo">
+                        <img src="{{ url_for('static', filename='images/featured/literacy-journal.png') }}" alt="Literacy Journal" class="featured-logo">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="testimonial">
-            <p>"I made a story about a dragon who was afraid of fire! My teacher said it was the best story in class!"</p>
-            <div class="testimonial-author">
-                <img src="{{ url_for('static', filename='images/testimonials/child1.png') }}" alt="Child">
-                <span>Jamie, 9 years old</span>
+            <div class="col-lg-6">
+                <div class="video-container">
+                    <img src="{{ url_for('static', filename='images/video-thumbnail.jpg') }}" alt="StoryQuest Demo" class="img-fluid video-thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<div class="cta-section">
-    <h2>Ready to Start Your Storytelling Adventure?</h2>
-    <p>Join thousands of young storytellers creating amazing worlds and characters!</p>
-    <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary">Create Your Free Account</a>
-</div>
+<!-- Benefits Section -->
+<section class="benefits-section">
+    <div class="container">
+        <h2 class="section-title">How StoryQuest Transforms Learning Into Adventure</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <i class="fas fa-brain benefit-icon"></i>
+                    <h3>Boosts Literacy Skills</h3>
+                    <p>Interactive stories improve reading comprehension by 32% compared to traditional methods, with personalized vocabulary challenges.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <i class="fas fa-lightbulb benefit-icon"></i>
+                    <h3>Sparks Creativity</h3>
+                    <p>Children create their own story paths, characters, and endings, developing critical thinking and problem-solving abilities.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <i class="fas fa-smile-beam benefit-icon"></i>
+                    <h3>Makes Learning Fun</h3>
+                    <p>Gamified challenges and rewards keep children engaged for 3x longer than traditional reading activities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Proof Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Loved By Children, Parents & Educators</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="{{ url_for('static', filename='images/testimonials/parent1.png') }}" alt="Sarah M." class="testimonial-avatar">
+                        <div class="testimonial-meta">
+                            <h4>Sarah M.</h4>
+                            <p>Parent of 7-year-old</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"My daughter used to struggle with reading. After 3 months with StoryQuest, she's reading above grade level and actually asks for story time!"</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="{{ url_for('static', filename='images/testimonials/teacher1.png') }}" alt="Michael T." class="testimonial-avatar">
+                        <div class="testimonial-meta">
+                            <h4>Michael T.</h4>
+                            <p>3rd Grade Teacher</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I've implemented StoryQuest in my classroom and seen remarkable improvements in reading comprehension and creative writing skills across all ability levels."</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="{{ url_for('static', filename='images/testimonials/child1.png') }}" alt="Jamie, 9" class="testimonial-avatar">
+                        <div class="testimonial-meta">
+                            <h4>Jamie, 9</h4>
+                            <p>StoryQuest User</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I love making my own stories! I made one about a dragon who becomes friends with a knight and my teacher said it was the best story in class!"</p>
+                </div>
+            </div>
+        </div>
+        <div class="user-stats">
+            <div class="stat-item">
+                <h3>500,000+</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-item">
+                <h3>5,000+</h3>
+                <p>Schools</p>
+            </div>
+            <div class="stat-item">
+                <h3>10M+</h3>
+                <p>Stories Created</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Age-Specific Features Section -->
+<section class="age-features-section">
+    <div class="container">
+        <h2 class="section-title">Age-Appropriate Adventures For Every Child</h2>
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="age-group-card">
+                    <img src="{{ url_for('static', filename='images/age-groups/young-kids.png') }}" alt="Ages 4-6" class="img-fluid">
+                    <h3>Ages 4-6</h3>
+                    <ul class="feature-list">
+                        <li>Picture-based storytelling with audio narration</li>
+                        <li>Simple drag-and-drop story creation</li>
+                        <li>Phonics-focused vocabulary building</li>
+                        <li>Parent-child co-reading mode</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="age-group-card">
+                    <img src="{{ url_for('static', filename='images/age-groups/middle-kids.png') }}" alt="Ages 7-9" class="img-fluid">
+                    <h3>Ages 7-9</h3>
+                    <ul class="feature-list">
+                        <li>Interactive chapter books with decision points</li>
+                        <li>Guided story creation with templates</li>
+                        <li>Vocabulary challenges and rewards</li>
+                        <li>Character and setting customization</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="age-group-card">
+                    <img src="{{ url_for('static', filename='images/age-groups/older-kids.png') }}" alt="Ages 10-12" class="img-fluid">
+                    <h3>Ages 10-12</h3>
+                    <ul class="feature-list">
+                        <li>Advanced storytelling with multiple plot lines</li>
+                        <li>Creative writing tools with feedback</li>
+                        <li>Collaborative story creation with friends</li>
+                        <li>Publishing and sharing capabilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cta-secondary">
+            <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary btn-lg">Find Your Child's Perfect Adventure</a>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Elements Section -->
+<section class="trust-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="trust-badge">
+                    <img src="{{ url_for('static', filename='images/badges/privacy-badge.png') }}" alt="Kid-Safe & COPPA Compliant" class="badge-icon">
+                    <h4>Kid-Safe & COPPA Compliant</h4>
+                    <p>No ads, no data collection, parent-controlled environment</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="trust-badge">
+                    <img src="{{ url_for('static', filename='images/badges/schools-badge.png') }}" alt="Used by 5,000+ Schools" class="badge-icon">
+                    <h4>Used by 5,000+ Schools</h4>
+                    <p>Curriculum-aligned content trusted by educators</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="trust-badge">
+                    <img src="{{ url_for('static', filename='images/badges/award-badge.png') }}" alt="Parents' Choice Gold Award" class="badge-icon">
+                    <h4>Parents' Choice Gold Award</h4>
+                    <p>Recognized for educational excellence</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="trust-badge">
+                    <img src="{{ url_for('static', filename='images/badges/guarantee-badge.png') }}" alt="30-Day Money Back Guarantee" class="badge-icon">
+                    <h4>30-Day Guarantee</h4>
+                    <p>Love it or get a full refund, no questions asked</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section with Urgency -->
+<section class="pricing-section">
+    <div class="container">
+        <h2 class="section-title">Simple, Affordable Plans For Every Family</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Monthly</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">9</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Unlimited stories and adventures</li>
+                            <li><i class="fas fa-check"></i> Access to all age-appropriate content</li>
+                            <li><i class="fas fa-check"></i> Weekly new story templates</li>
+                            <li><i class="fas fa-check"></i> Basic parent dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="{{ url_for('auth_bp.register') }}" class="btn btn-outline-primary btn-block">Start Free Trial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pricing-card featured">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Annual</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">79</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <div class="savings">Save $29 (25%)</div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Everything in Monthly plan</li>
+                            <li><i class="fas fa-check"></i> Advanced parent progress reports</li>
+                            <li><i class="fas fa-check"></i> Priority access to new features</li>
+                            <li><i class="fas fa-check"></i> Downloadable story PDFs</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary btn-block">Start Free Trial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="limited-offer">
+            <div class="countdown-container">
+                <p><i class="fas fa-clock"></i> Special Launch Offer: Get 3 months free with annual plan! Offer ends in:</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-days">2</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-hours">11</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-minutes">45</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="final-cta-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2>Ready to Transform Your Child's Learning Journey?</h2>
+                <p>Join over 500,000 families who've discovered the magic of StoryQuest. Start your risk-free 14-day trial today.</p>
+            </div>
+            <div class="col-lg-4">
+                <a href="{{ url_for('auth_bp.register') }}" class="btn btn-primary btn-lg btn-block">Get Started Now</a>
+                <p class="no-risk">No credit card required • Cancel anytime</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Simple countdown timer functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Update countdown every minute
+        setInterval(function() {
+            let minutes = parseInt(document.getElementById('countdown-minutes').innerText);
+            let hours = parseInt(document.getElementById('countdown-hours').innerText);
+            let days = parseInt(document.getElementById('countdown-days').innerText);
+            
+            minutes--;
+            
+            if (minutes < 0) {
+                minutes = 59;
+                hours--;
+                
+                if (hours < 0) {
+                    hours = 23;
+                    days--;
+                    
+                    if (days < 0) {
+                        days = 0;
+                        hours = 0;
+                        minutes = 0;
+                    }
+                }
+            }
+            
+            document.getElementById('countdown-minutes').innerText = minutes;
+            document.getElementById('countdown-hours').innerText = hours;
+            document.getElementById('countdown-days').innerText = days;
+        }, 60000);
+    });
+</script>
 {% endblock %}

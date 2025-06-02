@@ -1,0 +1,1051 @@
+2025-05-31 08:37:38,128 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:37:38,128 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:37:38,518 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:37:38,518 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:38:17,491 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:38:17,491 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:40:57,168 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:40:57,169 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:40:57,578 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:40:57,578 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:41:24,283 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:41:24,283 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:42:20,839 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:42:20,839 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:42:21,254 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:42:21,254 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:45:56,761 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:45:56,761 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:45:57,149 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:45:57,150 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 08:46:51,276 - storyquest - INFO - Application initialized successfully
+2025-05-31 08:46:51,276 - storyquest - INFO - Starting StoryQuest application
+2025-05-31 13:55:49,489 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:55:49,842 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-05-31 13:55:49,842 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-05-31 13:55:49,889 - storyquest.auth - WARNING - Registration validation failed - Missing fields: username 
+2025-05-31 13:55:49,917 - storyquest.auth - WARNING - Registration failed - Username already exists: existinguser
+2025-05-31 13:55:49,946 - storyquest.auth - WARNING - Registration failed - Email already registered: duplicate@example.com
+2025-05-31 13:55:50,202 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-05-31 13:55:50,202 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:55:50,232 - storyquest.auth - WARNING - Login validation failed - Missing fields: username 
+2025-05-31 13:55:50,234 - storyquest.auth - WARNING - Login validation failed - Missing fields: password
+2025-05-31 13:55:50,261 - storyquest.auth - WARNING - Login failed - User not found: nonexistentuser
+2025-05-31 13:55:50,262 - storyquest.auth - WARNING - Authentication FAILURE - User: nonexistentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:50,556 - storyquest.auth - WARNING - Login failed - Invalid password for user: passwordtest
+2025-05-31 13:55:50,556 - storyquest.auth - WARNING - Authentication FAILURE - User: passwordtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:50,809 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:55:50,809 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:55:50,812 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-05-31 13:55:50,815 - storyquest.auth - ERROR - Error during logout for user: testuser
+Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 152, in logout
+    return redirect(url_for('main_bp.index'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main_bp.index'. Did you mean 'main.index' instead?
+2025-05-31 13:55:51,233 - storyquest.auth - INFO - User logged in successfully: sessiontest (ID: 1)
+2025-05-31 13:55:51,233 - storyquest.auth - INFO - Authentication SUCCESS - User: sessiontest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:55:51,253 - storyquest.auth - WARNING - Login validation failed - Missing fields: username password
+2025-05-31 13:55:51,541 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:55:51,541 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:51,673 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:55:51,673 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:51,801 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:55:51,801 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:51,923 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:55:51,924 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:52,044 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:55:52,044 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:55:52,305 - storyquest.auth - INFO - User logged in successfully: logtest (ID: 1)
+2025-05-31 13:55:52,306 - storyquest.auth - INFO - Authentication SUCCESS - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:55:52,426 - storyquest.auth - WARNING - Login failed - Invalid password for user: logtest
+2025-05-31 13:55:52,426 - storyquest.auth - WARNING - Authentication FAILURE - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:55:52,686 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:55:52,687 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:55:52,958 - storyquest.auth - INFO - User logged in successfully: redirecttest (ID: 1)
+2025-05-31 13:55:52,958 - storyquest.auth - INFO - Authentication SUCCESS - User: redirecttest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:56:41,885 - storyquest - INFO - Admin user created
+2025-05-31 13:56:41,885 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:56:42,093 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-05-31 13:56:42,094 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-05-31 13:56:42,372 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-05-31 13:56:42,372 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:56:42,645 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:56:42,645 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:56:42,652 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-05-31 13:56:42,655 - storyquest.auth - ERROR - Error during logout for user: testuser
+Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 152, in logout
+    return redirect(url_for('main_bp.index'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main_bp.index'. Did you mean 'main.index' instead?
+2025-05-31 13:56:43,049 - storyquest.auth - WARNING - Login failed - Invalid password for user: invalidtest
+2025-05-31 13:56:43,050 - storyquest.auth - WARNING - Authentication FAILURE - User: invalidtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:57:24,935 - storyquest - INFO - Admin user created
+2025-05-31 13:57:24,935 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:57:25,137 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-05-31 13:57:25,137 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-05-31 13:57:25,402 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-05-31 13:57:25,403 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:57:25,663 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:57:25,663 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:57:25,671 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-05-31 13:57:25,929 - storyquest.auth - WARNING - Login failed - Invalid password for user: invalidtest
+2025-05-31 13:57:25,930 - storyquest.auth - WARNING - Authentication FAILURE - User: invalidtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:57:31,648 - storyquest - INFO - Admin user created
+2025-05-31 13:57:31,648 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:57:32,799 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:57:32,799 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:57:46,124 - storyquest - INFO - Admin user created
+2025-05-31 13:57:46,125 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:57:46,344 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-05-31 13:57:46,345 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-05-31 13:57:46,696 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-05-31 13:57:46,696 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:57:47,161 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:57:47,162 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:57:47,167 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-05-31 13:57:47,929 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:57:47,929 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:57:48,202 - storyquest.auth - INFO - User logged in successfully: redirecttest (ID: 1)
+2025-05-31 13:57:48,202 - storyquest.auth - INFO - Authentication SUCCESS - User: redirecttest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:00,949 - storyquest - INFO - Admin user created
+2025-05-31 13:58:00,949 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:58:02,110 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:58:02,111 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:45,624 - storyquest - INFO - Admin user created
+2025-05-31 13:58:45,625 - storyquest - INFO - Application initialized successfully
+2025-05-31 13:58:45,684 - storyquest - WARNING - 404 error: /auth/register/ - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-31 13:58:45,746 - storyquest - WARNING - 404 error: /auth/register/ - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-31 13:58:45,769 - storyquest - WARNING - 404 error: /auth/register/ - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-31 13:58:45,793 - storyquest - WARNING - 404 error: /auth/register/ - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-31 13:58:45,817 - storyquest - WARNING - 404 error: /auth/register/ - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-31 13:58:46,091 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-05-31 13:58:46,091 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:46,117 - storyquest.auth - WARNING - Login validation failed - Missing fields: username 
+2025-05-31 13:58:46,118 - storyquest.auth - WARNING - Login validation failed - Missing fields: password
+2025-05-31 13:58:46,145 - storyquest.auth - WARNING - Login failed - User not found: nonexistentuser
+2025-05-31 13:58:46,145 - storyquest.auth - WARNING - Authentication FAILURE - User: nonexistentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:46,402 - storyquest.auth - WARNING - Login failed - Invalid password for user: passwordtest
+2025-05-31 13:58:46,403 - storyquest.auth - WARNING - Authentication FAILURE - User: passwordtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:46,661 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:58:46,662 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:46,665 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-05-31 13:58:46,934 - storyquest.auth - INFO - User logged in successfully: sessiontest (ID: 1)
+2025-05-31 13:58:46,934 - storyquest.auth - INFO - Authentication SUCCESS - User: sessiontest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:46,955 - storyquest.auth - WARNING - Login validation failed - Missing fields: username password
+2025-05-31 13:58:47,230 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:58:47,230 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:47,353 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:58:47,353 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:47,474 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:58:47,475 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:47,597 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:58:47,597 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:47,718 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 13:58:47,719 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 13:58:47,980 - storyquest.auth - INFO - User logged in successfully: logtest (ID: 1)
+2025-05-31 13:58:47,980 - storyquest.auth - INFO - Authentication SUCCESS - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:48,101 - storyquest.auth - WARNING - Login failed - Invalid password for user: logtest
+2025-05-31 13:58:48,101 - storyquest.auth - WARNING - Authentication FAILURE - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:48,360 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 13:58:48,361 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 13:58:48,626 - storyquest.auth - INFO - User logged in successfully: redirecttest (ID: 1)
+2025-05-31 13:58:48,627 - storyquest.auth - INFO - Authentication SUCCESS - User: redirecttest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:02,175 - storyquest - INFO - Admin user created
+2025-05-31 18:11:02,176 - storyquest - INFO - Application initialized successfully
+2025-05-31 18:11:02,410 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-05-31 18:11:02,410 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-05-31 18:11:02,444 - storyquest.auth - WARNING - Registration validation failed - Missing fields: username 
+2025-05-31 18:11:02,446 - storyquest.auth - WARNING - Registration validation failed - Missing fields: email 
+2025-05-31 18:11:02,447 - storyquest.auth - WARNING - Registration validation failed - Missing fields: password
+2025-05-31 18:11:02,476 - storyquest.auth - WARNING - Registration failed - Username already exists: existinguser
+2025-05-31 18:11:02,509 - storyquest.auth - WARNING - Registration failed - Email already registered: duplicate@example.com
+2025-05-31 18:11:02,804 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-05-31 18:11:02,805 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:02,828 - storyquest.auth - WARNING - Login validation failed - Missing fields: username 
+2025-05-31 18:11:02,830 - storyquest.auth - WARNING - Login validation failed - Missing fields: password
+2025-05-31 18:11:02,850 - storyquest.auth - WARNING - Login failed - User not found: nonexistentuser
+2025-05-31 18:11:02,850 - storyquest.auth - WARNING - Authentication FAILURE - User: nonexistentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:03,133 - storyquest.auth - WARNING - Login failed - Invalid password for user: passwordtest
+2025-05-31 18:11:03,134 - storyquest.auth - WARNING - Authentication FAILURE - User: passwordtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:03,407 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 18:11:03,407 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:03,411 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-05-31 18:11:03,688 - storyquest.auth - INFO - User logged in successfully: sessiontest (ID: 1)
+2025-05-31 18:11:03,689 - storyquest.auth - INFO - Authentication SUCCESS - User: sessiontest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:03,708 - storyquest.auth - WARNING - Login validation failed - Missing fields: username password
+2025-05-31 18:11:03,999 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 18:11:04,000 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:04,130 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 18:11:04,130 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:04,260 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 18:11:04,260 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:04,390 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 18:11:04,391 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:04,520 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-05-31 18:11:04,521 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-05-31 18:11:04,800 - storyquest.auth - INFO - User logged in successfully: logtest (ID: 1)
+2025-05-31 18:11:04,801 - storyquest.auth - INFO - Authentication SUCCESS - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:04,930 - storyquest.auth - WARNING - Login failed - Invalid password for user: logtest
+2025-05-31 18:11:04,931 - storyquest.auth - WARNING - Authentication FAILURE - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:05,207 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-05-31 18:11:05,207 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:11:05,489 - storyquest.auth - INFO - User logged in successfully: redirecttest (ID: 1)
+2025-05-31 18:11:05,490 - storyquest.auth - INFO - Authentication SUCCESS - User: redirecttest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-05-31 18:12:15,703 - storyquest - INFO - Admin user created
+2025-05-31 18:12:15,703 - storyquest - INFO - Application initialized successfully
+2025-06-01 09:04:17,717 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:17,719 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:17,719 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:18,444 - storyquest - WARNING - 404 error: /favicon.ico - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:33,001 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:33,002 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:33,004 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:52,127 - storyquest.auth - WARNING - Login failed - User not found: Test01
+2025-06-01 09:04:52,127 - storyquest.auth - WARNING - Authentication FAILURE - User: Test01 - IP: 10.51.195.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 09:04:56,759 - storyquest.auth - WARNING - Login failed - User not found: test01
+2025-06-01 09:04:56,759 - storyquest.auth - WARNING - Authentication FAILURE - User: test01 - IP: 10.51.195.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 09:04:57,067 - storyquest - WARNING - 404 error: /favicon.ico - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:04:57,115 - storyquest - WARNING - 404 error: /favicon.ico - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:05:11,756 - storyquest.auth - INFO - Authentication SUCCESS - User: test01 - IP: 10.51.195.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 2
+2025-06-01 09:05:11,756 - storyquest.auth - INFO - User registered successfully: test01 (ID: 2)
+2025-06-01 09:05:12,165 - storyquest - WARNING - 404 error: /favicon.ico - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:05:12,215 - storyquest - WARNING - 404 error: /favicon.ico - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:05:34,950 - storyquest - ERROR - 500 error: /gallery - 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/storytelling_app/src/routes/main.py", line 18, in gallery
+    return render_template('main/gallery.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: main/gallery.html
+2025-06-01 09:08:35,643 - storyquest - INFO - Application initialized successfully
+2025-06-01 09:09:21,762 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:09:21,772 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:09:21,780 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:09:22,104 - storyquest - WARNING - 404 error: /favicon.ico - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:10:22,957 - storyquest.auth - WARNING - Login failed - Invalid password for user: test01
+2025-06-01 09:10:22,958 - storyquest.auth - WARNING - Authentication FAILURE - User: test01 - IP: 10.51.195.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 09:11:20,845 - storyquest - ERROR - 500 error: /gallery - 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/storytelling_app/src/routes/main.py", line 18, in gallery
+    return render_template('main/gallery.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: main/gallery.html
+2025-06-01 09:12:30,771 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser123 - IP: 10.51.195.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 3
+2025-06-01 09:12:30,772 - storyquest.auth - INFO - User registered successfully: testuser123 (ID: 3)
+2025-06-01 09:14:16,150 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:14:16,151 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:14:16,151 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:14:19,805 - storyquest.auth - INFO - User logged in successfully: test01 (ID: 2)
+2025-06-01 09:14:19,805 - storyquest.auth - INFO - Authentication SUCCESS - User: test01 - IP: 10.51.195.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 09:14:57,643 - storyquest - INFO - Application initialized successfully
+2025-06-01 09:16:30,122 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:16:30,123 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:16:30,124 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:17:59,909 - storyquest.auth - INFO - User logged out successfully: test01 (ID: 2)
+2025-06-01 09:18:00,115 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:18:00,116 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:18:00,120 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 09:18:05,378 - storyquest.auth - INFO - User logged in successfully: test01 (ID: 2)
+2025-06-01 09:18:05,378 - storyquest.auth - INFO - Authentication SUCCESS - User: test01 - IP: 10.51.195.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 10:13:27,486 - storyquest - WARNING - 404 error: /static/images/icons/share.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 10:13:27,488 - storyquest - WARNING - 404 error: /static/images/testimonials/child1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 10:13:27,489 - storyquest - WARNING - 404 error: /static/images/testimonials/parent1.png - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 10:41:43,289 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:43:17,008 - storyquest - INFO - Admin user created
+2025-06-01 10:43:17,008 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:44:46,468 - storyquest - INFO - Admin user created
+2025-06-01 10:44:46,468 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:44:47,457 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:44:47,457 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:44:47,468 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:47:06,902 - storyquest - INFO - Admin user created
+2025-06-01 10:47:06,903 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:47:07,286 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:47:07,286 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:47:07,293 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:47:07,302 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:47:07,771 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:47:07,771 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:47:08,059 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:47:08,059 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:47:08,066 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:47:08,487 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:47:08,487 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:47:08,499 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:47:08,502 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:47:09,139 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:47:09,139 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:48:59,320 - storyquest - INFO - Admin user created
+2025-06-01 10:48:59,320 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:48:59,713 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:48:59,714 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:48:59,721 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:48:59,730 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:49:00,219 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:49:00,219 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:49:00,511 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:49:00,511 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:49:00,518 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:49:00,950 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:49:00,950 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:49:00,963 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:49:00,966 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:49:01,541 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:49:01,542 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:49:01,546 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:50:05,656 - storyquest - INFO - Admin user created
+2025-06-01 10:50:05,656 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:50:06,047 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:50:06,048 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:50:06,055 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:50:06,064 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:50:06,548 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:50:06,549 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:50:06,844 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:50:06,844 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:50:06,852 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:50:07,289 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:50:07,289 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:50:07,302 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:50:07,305 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:50:07,884 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:50:07,884 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:50:07,889 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:51:41,748 - storyquest - INFO - Admin user created
+2025-06-01 10:51:41,748 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:51:42,146 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:51:42,147 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:51:42,154 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:51:42,164 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:51:42,666 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:51:42,666 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:51:42,969 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:51:42,969 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:51:42,976 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:51:43,415 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:51:43,415 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:51:43,428 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:51:43,432 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:51:44,029 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:51:44,030 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:51:44,034 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:52:57,773 - storyquest - INFO - Admin user created
+2025-06-01 10:52:57,773 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:52:58,181 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:52:58,181 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:52:58,189 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:52:58,199 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:52:58,518 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:52:58,518 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:52:58,831 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:52:58,831 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:52:58,839 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:52:59,290 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:52:59,291 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:52:59,305 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:52:59,308 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:52:59,961 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:52:59,962 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:52:59,966 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:56:02,183 - storyquest - INFO - Admin user created
+2025-06-01 10:56:02,183 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:56:02,563 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:56:02,563 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:56:02,570 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:56:02,579 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:56:02,874 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:56:02,874 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:56:03,164 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:56:03,164 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:56:03,171 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:56:03,589 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:56:03,589 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:56:03,602 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:56:03,605 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:56:04,187 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:56:04,187 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:56:04,192 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:57:22,459 - storyquest - INFO - Admin user created
+2025-06-01 10:57:22,459 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:57:23,013 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:57:23,013 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:57:23,020 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:57:23,030 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:57:23,330 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:57:23,330 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:57:23,772 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:57:23,773 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:57:23,780 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:57:24,215 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:57:24,215 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:57:24,228 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:57:24,232 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:57:24,392 - storyquest.auth - INFO - User logged out successfully: Unknown (ID: Unknown)
+2025-06-01 10:57:24,831 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:57:24,831 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:57:24,836 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:59:07,762 - storyquest - INFO - Admin user created
+2025-06-01 10:59:07,762 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:59:08,309 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:08,309 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:08,317 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 10:59:08,327 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 10:59:08,640 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:08,640 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:09,082 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:09,082 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:09,090 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 10:59:09,517 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:09,518 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:09,531 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 10:59:09,534 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 10:59:09,691 - storyquest.auth - INFO - User logged out successfully: Unknown (ID: Unknown)
+2025-06-01 10:59:10,127 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:10,127 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:10,132 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 10:59:54,788 - storyquest - INFO - Admin user created
+2025-06-01 10:59:54,788 - storyquest - INFO - Application initialized successfully
+2025-06-01 10:59:55,084 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 2)
+2025-06-01 10:59:55,085 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 10:59:55,414 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:55,415 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:55,712 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:55,713 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:56,005 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:56,005 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 10:59:56,296 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 10:59:56,296 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:00:07,646 - storyquest - INFO - Admin user created
+2025-06-01 11:00:07,646 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:00:07,934 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 2)
+2025-06-01 11:00:07,935 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 11:00:08,247 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 11:00:08,247 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:00:08,555 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 11:00:08,555 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:01:59,232 - storyquest - INFO - Admin user created
+2025-06-01 11:01:59,232 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:01:59,517 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 2)
+2025-06-01 11:01:59,518 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 11:01:59,829 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 11:01:59,829 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:02:00,278 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 11:02:00,279 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:03:10,843 - storyquest - INFO - Admin user created
+2025-06-01 11:03:10,844 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:03:11,128 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 2)
+2025-06-01 11:03:11,129 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 11:03:11,447 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 11:03:11,447 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:03:11,746 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 11:03:11,747 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:05:32,115 - storyquest - INFO - Admin user created
+2025-06-01 11:05:32,115 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:05:32,292 - storyquest.auth - INFO - Authentication SUCCESS - User: integration_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 2
+2025-06-01 11:05:32,293 - storyquest.auth - INFO - User registered successfully: integration_user (ID: 2)
+2025-06-01 11:05:32,338 - storyquest - WARNING - 404 error: /story/1/add_character - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 11:05:32,504 - storyquest.auth - INFO - Authentication SUCCESS - User: challenge_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:05:32,505 - storyquest.auth - INFO - User registered successfully: challenge_user (ID: 1)
+2025-06-01 11:05:33,185 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:05:33,185 - storyquest.auth - INFO - User registered successfully: resume_user (ID: 1)
+2025-06-01 11:05:33,204 - storyquest.auth - INFO - User logged out successfully: resume_user (ID: 1)
+2025-06-01 11:05:33,337 - storyquest.auth - INFO - User logged in successfully: resume_user (ID: 1)
+2025-06-01 11:05:33,337 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:07:39,998 - storyquest - INFO - Admin user created
+2025-06-01 11:07:39,999 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:07:40,175 - storyquest.auth - INFO - Authentication SUCCESS - User: integration_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 2
+2025-06-01 11:07:40,175 - storyquest.auth - INFO - User registered successfully: integration_user (ID: 2)
+2025-06-01 11:07:40,393 - storyquest.auth - INFO - Authentication SUCCESS - User: challenge_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:07:40,393 - storyquest.auth - INFO - User registered successfully: challenge_user (ID: 1)
+2025-06-01 11:07:40,676 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:07:40,676 - storyquest.auth - INFO - User registered successfully: resume_user (ID: 1)
+2025-06-01 11:07:40,690 - storyquest.auth - INFO - User logged out successfully: resume_user (ID: 1)
+2025-06-01 11:07:40,821 - storyquest.auth - INFO - User logged in successfully: resume_user (ID: 1)
+2025-06-01 11:07:40,822 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:08:31,354 - storyquest - INFO - Admin user created
+2025-06-01 11:08:31,354 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:08:31,518 - storyquest.auth - INFO - Authentication SUCCESS - User: integration_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 2
+2025-06-01 11:08:31,518 - storyquest.auth - INFO - User registered successfully: integration_user (ID: 2)
+2025-06-01 11:08:31,746 - storyquest.auth - INFO - Authentication SUCCESS - User: challenge_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:08:31,747 - storyquest.auth - INFO - User registered successfully: challenge_user (ID: 1)
+2025-06-01 11:08:31,768 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 11:08:31,778 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 11:08:32,039 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:08:32,039 - storyquest.auth - INFO - User registered successfully: resume_user (ID: 1)
+2025-06-01 11:08:32,055 - storyquest.auth - INFO - User logged out successfully: resume_user (ID: 1)
+2025-06-01 11:08:32,190 - storyquest.auth - INFO - User logged in successfully: resume_user (ID: 1)
+2025-06-01 11:08:32,191 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 11:13:13,969 - storyquest - INFO - Admin user created
+2025-06-01 11:13:13,969 - storyquest - INFO - Application initialized successfully
+2025-06-01 11:13:14,146 - storyquest.auth - INFO - Authentication SUCCESS - User: integration_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 2
+2025-06-01 11:13:14,146 - storyquest.auth - INFO - User registered successfully: integration_user (ID: 2)
+2025-06-01 11:13:14,369 - storyquest.auth - INFO - Authentication SUCCESS - User: challenge_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:13:14,370 - storyquest.auth - INFO - User registered successfully: challenge_user (ID: 1)
+2025-06-01 11:13:14,390 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 11:13:14,399 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 11:13:14,423 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 11:13:14,593 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 11:13:14,593 - storyquest.auth - INFO - User registered successfully: resume_user (ID: 1)
+2025-06-01 11:13:14,607 - storyquest.auth - INFO - User logged out successfully: resume_user (ID: 1)
+2025-06-01 11:13:14,735 - storyquest.auth - INFO - User logged in successfully: resume_user (ID: 1)
+2025-06-01 11:13:14,736 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:23,880 - storyquest - INFO - Admin user created
+2025-06-01 12:45:23,880 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:45:24,416 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:24,417 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:24,423 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 12:45:24,433 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 12:45:24,736 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:24,736 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:25,180 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:25,180 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:25,187 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 12:45:25,612 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:25,613 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:25,625 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 12:45:25,629 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 12:45:25,782 - storyquest.auth - INFO - User logged out successfully: Unknown (ID: Unknown)
+2025-06-01 12:45:26,213 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:26,214 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:26,218 - storyquest - INFO - Story 1 liked by user 1
+2025-06-01 12:45:36,572 - storyquest - INFO - Admin user created
+2025-06-01 12:45:36,572 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:45:36,923 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:36,923 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:37,230 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:37,230 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:37,232 - storyquest - WARNING - 404 error: /story/edit/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:38,252 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:38,252 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:38,254 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:38,404 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:38,554 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:38,824 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:38,824 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:38,826 - storyquest - WARNING - 404 error: /story/delete/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:39,103 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:39,104 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:39,105 - storyquest - WARNING - 404 error: /story/add_character - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:39,382 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:45:39,383 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:45:39,384 - storyquest - WARNING - 404 error: /story/add_setting - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:45:40,079 - storyquest - WARNING - 404 error: /story/filter - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:47:43,014 - storyquest - INFO - Admin user created
+2025-06-01 12:47:43,014 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:47:43,343 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:47:43,343 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:47:43,664 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:47:43,664 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:47:43,666 - storyquest - WARNING - 404 error: /story/edit/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:47:44,658 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:47:44,659 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:47:44,661 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:47:44,816 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:47:45,018 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:47:45,294 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:47:45,294 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:47:45,296 - storyquest - WARNING - 404 error: /story/delete/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:47:45,577 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:47:45,577 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:47:45,995 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:47:45,995 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:50:02,924 - storyquest - INFO - Admin user created
+2025-06-01 12:50:02,924 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:50:03,245 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:50:03,245 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:50:03,562 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:50:03,562 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:50:03,564 - storyquest - WARNING - 404 error: /story/edit/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:50:04,557 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:50:04,557 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:50:04,559 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:50:04,712 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:50:04,910 - storyquest - WARNING - 404 error: /story/view/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:50:05,189 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:50:05,190 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:50:05,191 - storyquest - WARNING - 404 error: /story/delete/1 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 12:50:05,476 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:50:05,476 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:50:06,276 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:50:06,276 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:52:42,024 - storyquest - INFO - Admin user created
+2025-06-01 12:52:42,024 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:52:42,462 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:52:42,462 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:52:42,804 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:52:42,805 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:52:43,245 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 12:52:43,246 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 12:52:43,541 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:52:43,541 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:52:44,380 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:52:44,381 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:52:44,677 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:52:44,677 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:52:45,500 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:52:45,500 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:54:25,439 - storyquest - INFO - Admin user created
+2025-06-01 12:54:25,439 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:54:25,776 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:54:25,776 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:54:26,099 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:54:26,099 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:54:26,539 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 12:54:26,540 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 12:54:26,828 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:54:26,829 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:54:27,480 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:54:27,480 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:54:27,797 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:54:27,797 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:54:28,086 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:54:28,087 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:55:50,997 - storyquest - INFO - Admin user created
+2025-06-01 12:55:50,997 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:55:51,315 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:55:51,316 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:55:51,627 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:55:51,627 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:55:52,050 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 12:55:52,050 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 12:55:52,334 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:55:52,335 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:55:52,953 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:55:52,954 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:55:53,245 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:55:53,246 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:55:53,538 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:55:53,539 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:57:19,375 - storyquest - INFO - Admin user created
+2025-06-01 12:57:19,375 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:57:19,694 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:57:19,694 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:57:20,005 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:57:20,006 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:57:20,432 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 12:57:20,433 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 12:57:20,716 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:57:20,717 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:57:21,313 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:57:21,314 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:57:21,598 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:57:21,599 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:57:21,880 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:57:21,880 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:58:47,185 - storyquest - INFO - Admin user created
+2025-06-01 12:58:47,185 - storyquest - INFO - Application initialized successfully
+2025-06-01 12:58:47,503 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:58:47,503 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:58:47,811 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:58:47,811 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:58:48,229 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 12:58:48,230 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 12:58:48,507 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:58:48,508 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:58:49,103 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:58:49,103 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:58:49,395 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:58:49,395 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 12:58:49,686 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 12:58:49,686 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:01:07,203 - storyquest - INFO - Admin user created
+2025-06-01 13:01:07,203 - storyquest - INFO - Application initialized successfully
+2025-06-01 13:01:07,513 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:01:07,514 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:01:07,817 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:01:07,817 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:01:08,235 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 13:01:08,235 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 13:01:08,512 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:01:08,512 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:01:09,099 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:01:09,100 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:01:09,382 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:01:09,382 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:01:09,665 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:01:09,665 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:03:21,632 - storyquest - INFO - Admin user created
+2025-06-01 13:03:21,633 - storyquest - INFO - Application initialized successfully
+2025-06-01 13:03:21,957 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:03:21,957 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:03:22,278 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:03:22,279 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:03:22,711 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 13:03:22,711 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 13:03:22,992 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:03:22,993 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:03:23,624 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:03:23,624 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:03:23,913 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:03:23,914 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:03:24,225 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:03:24,225 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:04:45,374 - storyquest - INFO - Admin user created
+2025-06-01 13:04:45,374 - storyquest - INFO - Application initialized successfully
+2025-06-01 13:04:45,745 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:04:45,745 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:04:46,062 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:04:46,062 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:04:46,475 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 13:04:46,476 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 13:04:46,764 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:04:46,764 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:04:47,347 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:04:47,347 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:04:47,626 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:04:47,626 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:04:47,902 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:04:47,903 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:06:59,202 - storyquest - INFO - Admin user created
+2025-06-01 13:06:59,202 - storyquest - INFO - Application initialized successfully
+2025-06-01 13:06:59,552 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:06:59,552 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:06:59,853 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:06:59,853 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:00,261 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 13:07:00,262 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 13:07:00,535 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:00,535 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:00,949 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:00,949 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:01,222 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:01,222 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:01,496 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:01,496 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:45,735 - storyquest - INFO - Admin user created
+2025-06-01 13:07:45,735 - storyquest - INFO - Application initialized successfully
+2025-06-01 13:07:46,067 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 13:07:46,068 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-06-01 13:07:46,341 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-06-01 13:07:46,341 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:46,611 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:46,611 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:46,619 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-06-01 13:07:46,881 - storyquest.auth - WARNING - Login failed - Invalid password for user: invalidtest
+2025-06-01 13:07:46,882 - storyquest.auth - WARNING - Authentication FAILURE - User: invalidtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:47,064 - storyquest.auth - INFO - Authentication SUCCESS - User: newuser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 13:07:47,065 - storyquest.auth - INFO - User registered successfully: newuser (ID: 1)
+2025-06-01 13:07:47,088 - storyquest.auth - WARNING - Registration validation failed - Missing fields: username 
+2025-06-01 13:07:47,089 - storyquest.auth - WARNING - Registration validation failed - Missing fields: email 
+2025-06-01 13:07:47,090 - storyquest.auth - WARNING - Registration validation failed - Missing fields: password
+2025-06-01 13:07:47,111 - storyquest.auth - WARNING - Registration failed - Username already exists: existinguser
+2025-06-01 13:07:47,136 - storyquest.auth - WARNING - Registration failed - Email already registered: duplicate@example.com
+2025-06-01 13:07:47,394 - storyquest.auth - INFO - User logged in successfully: logintest (ID: 1)
+2025-06-01 13:07:47,395 - storyquest.auth - INFO - Authentication SUCCESS - User: logintest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:47,417 - storyquest.auth - WARNING - Login validation failed - Missing fields: username 
+2025-06-01 13:07:47,418 - storyquest.auth - WARNING - Login validation failed - Missing fields: password
+2025-06-01 13:07:47,437 - storyquest.auth - WARNING - Login failed - User not found: nonexistentuser
+2025-06-01 13:07:47,437 - storyquest.auth - WARNING - Authentication FAILURE - User: nonexistentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:47,696 - storyquest.auth - WARNING - Login failed - Invalid password for user: passwordtest
+2025-06-01 13:07:47,696 - storyquest.auth - WARNING - Authentication FAILURE - User: passwordtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:47,962 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:47,962 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:47,966 - storyquest.auth - INFO - User logged out successfully: testuser (ID: 1)
+2025-06-01 13:07:48,246 - storyquest.auth - INFO - User logged in successfully: sessiontest (ID: 1)
+2025-06-01 13:07:48,246 - storyquest.auth - INFO - Authentication SUCCESS - User: sessiontest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:48,266 - storyquest.auth - WARNING - Login validation failed - Missing fields: username password
+2025-06-01 13:07:48,538 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-06-01 13:07:48,539 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:48,661 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-06-01 13:07:48,662 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:48,784 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-06-01 13:07:48,784 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:48,906 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-06-01 13:07:48,906 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:49,030 - storyquest.auth - WARNING - Login failed - Invalid password for user: bruteforce
+2025-06-01 13:07:49,031 - storyquest.auth - WARNING - Authentication FAILURE - User: bruteforce - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:49,294 - storyquest.auth - INFO - User logged in successfully: logtest (ID: 1)
+2025-06-01 13:07:49,295 - storyquest.auth - INFO - Authentication SUCCESS - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:49,417 - storyquest.auth - WARNING - Login failed - Invalid password for user: logtest
+2025-06-01 13:07:49,417 - storyquest.auth - WARNING - Authentication FAILURE - User: logtest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:49,689 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:49,689 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:49,960 - storyquest.auth - INFO - User logged in successfully: redirecttest (ID: 1)
+2025-06-01 13:07:49,960 - storyquest.auth - INFO - Authentication SUCCESS - User: redirecttest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:49,981 - storyquest.auth - WARNING - Registration validation failed - Missing fields: username 
+2025-06-01 13:07:49,982 - storyquest.auth - WARNING - Registration validation failed - Missing fields: email 
+2025-06-01 13:07:49,983 - storyquest.auth - WARNING - Registration validation failed - Missing fields: password
+2025-06-01 13:07:50,123 - storyquest.auth - WARNING - Registration failed - Username already exists: existinguser
+2025-06-01 13:07:50,272 - storyquest.auth - WARNING - Registration failed - Email already registered: duplicate@example.com
+2025-06-01 13:07:50,290 - storyquest.auth - WARNING - Login validation failed - Missing fields: username 
+2025-06-01 13:07:50,291 - storyquest.auth - WARNING - Login validation failed - Missing fields: password
+2025-06-01 13:07:50,308 - storyquest.auth - WARNING - Login failed - User not found: nonexistentuser
+2025-06-01 13:07:50,308 - storyquest.auth - WARNING - Authentication FAILURE - User: nonexistentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST
+2025-06-01 13:07:50,455 - storyquest.auth - ERROR - Error registering user: dberroruser
+Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 54, in register
+    db.session.commit()
+  File "/usr/lib/python3.11/unittest/mock.py", line 1108, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1112, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1167, in _execute_mock_call
+    raise effect
+sqlalchemy.exc.SQLAlchemyError: Database error
+2025-06-01 13:07:50,456 - storyquest.auth - ERROR - Authentication FAILURE - User: dberroruser - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Error: Database error
+Traceback: Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 54, in register
+    db.session.commit()
+  File "/usr/lib/python3.11/unittest/mock.py", line 1108, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1112, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1167, in _execute_mock_call
+    raise effect
+sqlalchemy.exc.SQLAlchemyError: Database error
+
+2025-06-01 13:07:50,478 - storyquest.auth - ERROR - Error during login for user: testuser
+Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 98, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1108, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1112, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1167, in _execute_mock_call
+    raise effect
+sqlalchemy.exc.SQLAlchemyError: Database error
+2025-06-01 13:07:50,478 - storyquest.auth - ERROR - Authentication FAILURE - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Error: Database error
+Traceback: Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 98, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1108, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1112, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1167, in _execute_mock_call
+    raise effect
+sqlalchemy.exc.SQLAlchemyError: Database error
+
+2025-06-01 13:07:50,748 - storyquest.auth - INFO - User logged in successfully: sessiontest (ID: 1)
+2025-06-01 13:07:50,748 - storyquest.auth - INFO - Authentication SUCCESS - User: sessiontest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:51,066 - storyquest.auth - ERROR - Error during login for user: corrupttest
+Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 113, in login
+    session['user_id'] = user.id
+    ~~~~~~~^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1108, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1112, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1167, in _execute_mock_call
+    raise effect
+Exception: Session corruption
+2025-06-01 13:07:51,066 - storyquest.auth - ERROR - Authentication FAILURE - User: corrupttest - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Error: Session corruption
+Traceback: Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 113, in login
+    session['user_id'] = user.id
+    ~~~~~~~^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1108, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1112, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/unittest/mock.py", line 1167, in _execute_mock_call
+    raise effect
+Exception: Session corruption
+
+2025-06-01 13:07:51,329 - storyquest.auth - INFO - User logged in successfully: concurrentuser (ID: 1)
+2025-06-01 13:07:51,330 - storyquest.auth - INFO - Authentication SUCCESS - User: concurrentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:51,451 - storyquest.auth - INFO - User logged in successfully: concurrentuser (ID: 1)
+2025-06-01 13:07:51,451 - storyquest.auth - INFO - Authentication SUCCESS - User: concurrentuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:51,469 - storyquest.auth - INFO - User logged out successfully: Unknown (ID: Unknown)
+2025-06-01 13:07:51,728 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:51,728 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:51,734 - storyquest.auth - INFO - User logged out successfully: <coroutine object AsyncMockMixin._execute_mock_call at 0x7f4951e20240> (ID: <coroutine object AsyncMockMixin._execute_mock_call at 0x7f4951e20540>)
+2025-06-01 13:07:51,735 - storyquest.auth - ERROR - Error during logout for user: <coroutine object AsyncMockMixin._execute_mock_call at 0x7f4951e20240>
+Traceback (most recent call last):
+  File "/home/ubuntu/storytelling_app/src/routes/auth.py", line 153, in logout
+    auth_logger.debug("Session after logout: " + str({k: v for k, v in session.items()} if session else {}))
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'coroutine' object is not iterable
+2025-06-01 13:07:51,884 - storyquest.auth - INFO - Authentication SUCCESS - User: integration_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 13:07:51,885 - storyquest.auth - INFO - User registered successfully: integration_user (ID: 1)
+2025-06-01 13:07:51,915 - storyquest - WARNING - 404 error: /story/1/character/create - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:07:52,094 - storyquest.auth - INFO - Authentication SUCCESS - User: challenge_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 13:07:52,094 - storyquest.auth - INFO - User registered successfully: challenge_user (ID: 1)
+2025-06-01 13:07:52,115 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 13:07:52,124 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 13:07:52,144 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 13:07:52,314 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.register - Method: POST - Session user_id: 1
+2025-06-01 13:07:52,314 - storyquest.auth - INFO - User registered successfully: resume_user (ID: 1)
+2025-06-01 13:07:52,331 - storyquest.auth - INFO - User logged out successfully: resume_user (ID: 1)
+2025-06-01 13:07:52,452 - storyquest.auth - INFO - User logged in successfully: resume_user (ID: 1)
+2025-06-01 13:07:52,453 - storyquest.auth - INFO - Authentication SUCCESS - User: resume_user - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:55,073 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:55,074 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:55,351 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:55,351 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:55,632 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:55,632 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:55,667 - storyquest - WARNING - 404 error: /progress/stats - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:07:55,931 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:55,931 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:55,933 - storyquest - WARNING - 404 error: /progress/stats - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:07:56,204 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:56,204 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:56,206 - storyquest - WARNING - 404 error: /progress/update - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:07:56,710 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:56,710 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:07:56,712 - storyquest - WARNING - 404 error: /progress/complete - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:07:59,442 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:07:59,442 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:00,233 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:00,233 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:00,514 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:00,515 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:00,804 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:00,804 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:01,087 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:01,087 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:01,096 - storyquest - WARNING - 404 error: /story/1/character/create - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:08:01,368 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:01,369 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:01,377 - storyquest - WARNING - 404 error: /story/1/setting/create - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-01 13:08:01,666 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:01,666 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:01,951 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:01,952 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:02,361 - storyquest.auth - INFO - User logged in successfully: otheruser (ID: 2)
+2025-06-01 13:08:02,362 - storyquest.auth - INFO - Authentication SUCCESS - User: otheruser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 2
+2025-06-01 13:08:02,639 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:02,640 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:03,067 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:03,067 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:03,349 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:03,349 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:03,632 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:03,632 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:04,658 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:04,659 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:05,022 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:05,022 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:05,035 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 13:08:05,312 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:05,312 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:05,595 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:05,595 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:05,605 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 13:08:05,607 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 13:08:06,044 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:06,044 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:06,632 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:06,633 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:06,637 - storyquest - INFO - Story 1 submitted to challenge 1 by user 1
+2025-06-01 13:08:06,641 - storyquest - WARNING - Attempted to award non-existent achievement: Challenge Accepted
+2025-06-01 13:08:06,936 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:06,936 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:07,363 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:07,363 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:07,369 - storyquest - INFO - Achievement 1 awarded to user 1
+2025-06-01 13:08:07,796 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:07,796 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:07,802 - storyquest - INFO - Story 1 shared by user 1 with type public
+2025-06-01 13:08:07,806 - storyquest - WARNING - Attempted to award non-existent achievement: First Share
+2025-06-01 13:08:07,959 - storyquest.auth - INFO - User logged out successfully: Unknown (ID: Unknown)
+2025-06-01 13:08:08,388 - storyquest.auth - INFO - User logged in successfully: testuser (ID: 1)
+2025-06-01 13:08:08,388 - storyquest.auth - INFO - Authentication SUCCESS - User: testuser - IP: 127.0.0.1 - Endpoint: auth_bp.login - Method: POST - Session user_id: 1
+2025-06-01 13:08:08,393 - storyquest - INFO - Story 1 liked by user 1
+2025-06-02 14:09:18,058 - storyquest - INFO - Admin user created
+2025-06-02 14:09:18,058 - storyquest - INFO - Application initialized successfully
+2025-06-02 14:09:41,072 - storyquest - INFO - Application initialized successfully

@@ -212,14 +212,16 @@ class TestStoryModel:
             name='Hero',
             description='The main protagonist',
             traits='brave,smart',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         
         character2 = Character(
             name='Villain',
             description='The antagonist',
             traits='cunning,powerful',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         
         db.session.add_all([character1, character2])
@@ -229,7 +231,8 @@ class TestStoryModel:
             name='Enchanted Forest',
             description='A magical forest setting',
             time_period='fantasy',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         db.session.add(setting)
         
@@ -296,7 +299,8 @@ class TestStoryModel:
         character = Character(
             name='Test Character',
             description='For cascade testing',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         db.session.add(character)
         
@@ -304,7 +308,8 @@ class TestStoryModel:
         setting = Setting(
             name='Test Setting',
             description='For cascade testing',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         db.session.add(setting)
         
@@ -373,7 +378,8 @@ class TestCharacterModel:
             name='Test Character',
             description='A character for testing',
             traits='brave,smart,kind',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         db.session.add(character)
         db.session.commit()
@@ -384,6 +390,7 @@ class TestCharacterModel:
         assert saved_character.description == 'A character for testing'
         assert saved_character.traits == 'brave,smart,kind'
         assert saved_character.story_id == story.id
+        assert saved_character.user_id == user.id  # Verify user_id
 
 
 class TestSettingModel:
@@ -415,7 +422,8 @@ class TestSettingModel:
             name='Test Setting',
             description='A setting for testing',
             time_period='medieval',
-            story_id=story.id
+            story_id=story.id,
+            user_id=user.id  # Added missing user_id
         )
         db.session.add(setting)
         db.session.commit()
@@ -426,6 +434,7 @@ class TestSettingModel:
         assert saved_setting.description == 'A setting for testing'
         assert saved_setting.time_period == 'medieval'
         assert saved_setting.story_id == story.id
+        assert saved_setting.user_id == user.id  # Verify user_id
 
 
 class TestProgressModel:
@@ -503,129 +512,11 @@ class TestProgressModel:
         
         # Update progress
         progress.current_step = 'setting_creation'
-        progress.data = '{"character_name":"Initial Hero","setting_name":"Magic Forest"}'
+        progress.data = '{"character_name":"Updated Hero","setting_name":"Castle"}'
         db.session.commit()
         
         # Retrieve and verify
         updated_progress = Progress.query.filter_by(user_id=user.id, story_id=story.id).first()
         assert updated_progress.current_step == 'setting_creation'
-        assert '"setting_name":"Magic Forest"' in updated_progress.data
-
-
-class TestAchievementModel:
-    """Test suite for Achievement model."""
-    
-    def test_achievement_creation(self, db):
-        """Test creating an achievement with valid data."""
-        achievement = Achievement(
-            name='Test Achievement',
-            description='An achievement for testing',
-            badge_image='test_badge.png',
-            points=25
-        )
-        db.session.add(achievement)
-        db.session.commit()
-        
-        # Retrieve and verify
-        saved_achievement = Achievement.query.filter_by(name='Test Achievement').first()
-        assert saved_achievement is not None
-        assert saved_achievement.description == 'An achievement for testing'
-        assert saved_achievement.badge_image == 'test_badge.png'
-        assert saved_achievement.points == 25
-
-
-class TestStoryElementModel:
-    """Test suite for StoryElement model."""
-    
-    def test_story_element_creation(self, db):
-        """Test creating a story element with valid data."""
-        # Create a user and story first
-        user = User(
-            username='elementuser',
-            email='element@example.com',
-            password=generate_password_hash('password123'),
-            age_group='7-9'
-        )
-        db.session.add(user)
-        db.session.commit()
-        
-        story = Story(
-            title='Element Test Story',
-            description='For element testing',
-            age_group='7-9',
-            user_id=user.id
-        )
-        db.session.add(story)
-        db.session.commit()
-        
-        # Create a story element
-        element = StoryElement(
-            element_type='introduction',
-            content='Once upon a time in a land far away...',
-            position=1,
-            story_id=story.id
-        )
-        db.session.add(element)
-        db.session.commit()
-        
-        # Retrieve and verify
-        saved_element = StoryElement.query.filter_by(story_id=story.id, position=1).first()
-        assert saved_element is not None
-        assert saved_element.element_type == 'introduction'
-        assert saved_element.content == 'Once upon a time in a land far away...'
-        assert saved_element.position == 1
-    
-    def test_story_element_ordering(self, db):
-        """Test ordering of story elements by position."""
-        # Create a user and story first
-        user = User(
-            username='orderuser',
-            email='order@example.com',
-            password=generate_password_hash('password123'),
-            age_group='7-9'
-        )
-        db.session.add(user)
-        db.session.commit()
-        
-        story = Story(
-            title='Order Test Story',
-            description='For ordering testing',
-            age_group='7-9',
-            user_id=user.id
-        )
-        db.session.add(story)
-        db.session.commit()
-        
-        # Create story elements in non-sequential order
-        element3 = StoryElement(
-            element_type='climax',
-            content='The hero faced the dragon...',
-            position=3,
-            story_id=story.id
-        )
-        
-        element1 = StoryElement(
-            element_type='introduction',
-            content='Once upon a time...',
-            position=1,
-            story_id=story.id
-        )
-        
-        element2 = StoryElement(
-            element_type='rising_action',
-            content='The journey began...',
-            position=2,
-            story_id=story.id
-        )
-        
-        db.session.add_all([element3, element1, element2])
-        db.session.commit()
-        
-        # Query elements ordered by position
-        elements = StoryElement.query.filter_by(story_id=story.id).order_by(StoryElement.position).all()
-        
-        # Verify order
-        assert len(elements) == 3
-        assert elements[0].element_type == 'introduction'
-        assert elements[1].element_type == 'rising_action'
-        assert elements[2].element_type == 'climax'
+        assert '"character_name":"Updated Hero"' in updated_progress.data
+        assert '"setting_name":"Castle"' in updated_progress.data

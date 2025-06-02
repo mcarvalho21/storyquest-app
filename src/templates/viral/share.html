@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}StoryQuest - Share Your Story{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="mb-4">Share Your Story</h1>
+    
+    <div class="row mb-5">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h4">{{ story.title }}</h2>
+                    <p class="text-muted">Share your creative story with friends and family!</p>
+                    
+                    <div class="story-preview mb-4">
+                        <p>{{ story.description }}</p>
+                        {% if story.content|length > 200 %}
+                            <p>{{ story.content[:200] }}...</p>
+                        {% else %}
+                            <p>{{ story.content }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm bg-light">
+                <div class="card-body">
+                    <h3 class="card-title h5">Sharing Benefits</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-medal text-warning me-2"></i> Earn sharing achievements</li>
+                        <li><i class="fas fa-comment text-primary me-2"></i> Get feedback from others</li>
+                        <li><i class="fas fa-heart text-danger me-2"></i> Inspire other storytellers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="h5 mb-0">Share Options</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('viral_bp.share_story', story_id=story.id) }}">
+                        <div class="mb-3">
+                            <label for="share_type" class="form-label">Privacy Level</label>
+                            <select class="form-select" id="share_type" name="share_type" aria-describedby="shareTypeHelp">
+                                <option value="public">Public - Anyone can view your story</option>
+                                <option value="limited">Limited - Only people with the link can view</option>
+                            </select>
+                            <div id="shareTypeHelp" class="form-text">
+                                Choose who can see your story when shared.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="share_message" class="form-label">Share Message (Optional)</label>
+                            <textarea class="form-control" id="share_message" name="share_message" rows="3" 
+                                      placeholder="Add a personal message to accompany your story" aria-describedby="shareMessageHelp"></textarea>
+                            <div id="shareMessageHelp" class="form-text">
+                                Add a personal note to explain your story or inspire others.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="allow_comments" name="allow_comments" checked>
+                                <label class="form-check-label" for="allow_comments">
+                                    Allow comments on your story
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Share Story</button>
+                    </form>
+                </div>
+            </div>
+            
+            {% if story.is_shared %}
+                <div class="card shadow-sm mt-4">
+                    <div class="card-header">
+                        <h3 class="h5 mb-0">Share Link</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Your story is already shared! Use this link to share it with others:</p>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="share_url" value="{{ share_url }}" readonly aria-label="Share URL">
+                            <button class="btn btn-outline-secondary" type="button" id="copy_button" onclick="copyShareLink()" aria-label="Copy share link">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="h6">Share on Social Media</h4>
+                            <div class="social-share-buttons">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url|urlencode }}" 
+                                   target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary me-2"
+                                   aria-label="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?url={{ share_url|urlencode }}&text=Check%20out%20my%20story%20on%20StoryQuest:%20{{ story.title|urlencode }}" 
+                                   target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info me-2"
+                                   aria-label="Share on Twitter">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                                <a href="mailto:?subject=Check%20out%20my%20story%20on%20StoryQuest&body=I%20created%20a%20story%20called%20'{{ story.title|urlencode }}'%20on%20StoryQuest.%20Read%20it%20here:%20{{ share_url|urlencode }}" 
+                                   class="btn btn-sm btn-outline-secondary"
+                                   aria-label="Share via Email">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="h5 mb-0">Sharing Tips</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Share your story to earn special achievements
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Add a personal message to give context
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Consider submitting to a challenge for more visibility
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Respond to comments to engage with readers
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm mt-4">
+                <div class="card-header">
+                    <h3 class="h5 mb-0">Privacy Note</h3>
+                </div>
+                <div class="card-body">
+                    <p class="small">
+                        <i class="fas fa-shield-alt text-primary me-2"></i>
+                        When you share your story, only the content you've created will be visible to others.
+                        Your personal information remains private.
+                    </p>
+                    <p class="small">
+                        <i class="fas fa-undo text-primary me-2"></i>
+                        You can stop sharing your story at any time by editing its privacy settings.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    function copyShareLink() {
+        const shareUrlInput = document.getElementById('share_url');
+        shareUrlInput.select();
+        document.execCommand('copy');
+        
+        // Show feedback
+        const copyButton = document.getElementById('copy_button');
+        const originalText = copyButton.innerHTML;
+        copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyButton.classList.replace('btn-outline-secondary', 'btn-success');
+        
+        // Create an announcement for screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.classList.add('sr-only');
+        announcement.textContent = 'Link copied to clipboard';
+        document.body.appendChild(announcement);
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            copyButton.innerHTML = originalText;
+            copyButton.classList.replace('btn-success', 'btn-outline-secondary');
+            document.body.removeChild(announcement);
+        }, 2000);
+    }
+    
+    // Accessibility enhancements
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make social share buttons more accessible
+        document.querySelectorAll('.social-share-buttons a').forEach(button => {
+            button.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .social-share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    /* Accessibility improvements */
+    @media (prefers-reduced-motion: reduce) {
+        .btn-success {
+            transition: none;
+        }
+    }
+    
+    /* High contrast mode */
+    @media (prefers-contrast: high) {
+        .social-share-buttons .btn {
+            border-width: 2px;
+        }
+    }
+    
+    /* Responsive improvements */
+    @media (max-width: 768px) {
+        .social-share-buttons {
+            flex-direction: column;
+        }
+        
+        .social-share-buttons .btn {
+            width: 100%;
+            margin-right: 0 !important;
+            margin-bottom: 0.5rem;
+        }
+    }
+    
+    /* Screen reader only class */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+</style>
+{% endblock %}
+{% endblock %}

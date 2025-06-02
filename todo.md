@@ -1,31 +1,29 @@
-# Children's Storytelling Web App Development Todo List
+# StoryQuest Development Todo List
 
-## Planning and Setup
-- [x] Analyze requirements and design features
-- [x] Select appropriate web app template
-- [x] Scaffold and initialize project
-- [x] Create project structure
+## SQLAlchemy Deprecation Fixes
+- [ ] Update all instances of `Query.get()` to use `Session.get()` in models
+- [ ] Fix other SQLAlchemy deprecation warnings
+- [ ] Test database operations after updates
 
-## Development Tasks
-- [x] Develop interactive storytelling features
-- [x] Implement save and resume progress functionality
-- [x] Add family-friendly design elements
-- [x] Create viral-worthy sharing features
-- [x] Implement user authentication system
-- [x] Design responsive UI for multiple devices
+## UI/UX Enhancements
+- [ ] Improve mobile responsiveness in all templates
+- [ ] Add ARIA attributes for better accessibility
+- [ ] Enhance keyboard navigation support
+- [ ] Implement high contrast mode option
+- [ ] Add skip-to-content links for accessibility
 
-## Testing and Refinement
-- [ ] Complete comprehensive test plan
-- [ ] Implement unit tests for all models
-- [ ] Implement integration tests for all routes
-- [ ] Implement UI and responsive design tests
-- [ ] Implement end-to-end tests for critical user journeys
-- [ ] Set up test coverage reporting
-- [ ] Run all tests and fix any failures
-- [ ] Validate test coverage meets goals
-- [ ] Refine user experience based on test results
+## Feature Completion
+- [ ] Enhance achievements system with progress tracking visualization
+- [ ] Improve story sharing with better privacy controls
+- [ ] Complete challenge submission and validation system
+- [ ] Add view and like tracking for shared stories
 
-## Deployment
-- [x] Deploy application for user testing
-- [x] Provide access instructions to user
-- [x] Document features and usage instructions
+## Test Improvements
+- [ ] Enhance test fixtures for better data management
+- [ ] Add data cleanup routines for test isolation
+- [ ] Fix UI/Selenium tests where possible
+
+## Documentation
+- [ ] Update API documentation
+- [ ] Create user guide for parents and children
+- [ ] Document codebase for future developers
